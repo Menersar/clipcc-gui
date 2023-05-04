@@ -9,7 +9,7 @@ import mime from 'mime-types';
 import log from '../lib/log';
 import vm from 'vm';
 
-import ClipCCExtension from 'clipcc-extension';
+import ScratchExtension from 'clipcc-extension';
 
 import musicIconURL from './libraries/extensions/music/music.png';
 import musicInsetIconURL from './libraries/extensions/music/music-small.svg';
@@ -47,8 +47,8 @@ import HTTPIOInsetImage from './libraries/extensions/HTTPIO/clipcc.httpio-small.
 import JSONImage from './libraries/extensions/JSON/JSON.png';
 import JSONInsetImage from './libraries/extensions/JSON/ccjson-small.svg';
 
-import ClipCCDefaultImage from './libraries/extensions/clipcc/CCUnknownExtension.jpg';
-import ClipCCDefaultInsetImage from './libraries/extensions/clipcc/CCUnknownExtension.svg';
+import ScratchDefaultImage from './libraries/extensions/scratch/CCUnknownExtension.jpg';
+import ScratchDefaultInsetImage from './libraries/extensions/scratch/CCUnknownExtension.svg';
 
 const builtinExtensions = [
     {
@@ -170,7 +170,7 @@ const deprecatedExtensions = [
 
 const loadBuiltinExtension = dispatch => {
     for (const ext of builtinExtensions) {
-        ClipCCExtension.extensionManager.addInstance(ext.extensionId, {
+        ScratchExtension.extensionManager.addInstance(ext.extensionId, {
             id: ext.extensionId,
             icon: ext.iconURL,
             inset_icon: ext.insetIconURL,
@@ -178,12 +178,12 @@ const loadBuiltinExtension = dispatch => {
             requirement: ext.requirement,
             api: 0,
             version: '1.0.0'
-        }, new ClipCCExtension.Extension());
+        }, new ScratchExtension.Extension());
         dispatch(initExtension(ext));
     }
     // 弃用的扩展仍需要被加载，但是不会被显示
     for (const ext of deprecatedExtensions) {
-        ClipCCExtension.extensionManager.addInstance(ext.extensionId, {
+        ScratchExtension.extensionManager.addInstance(ext.extensionId, {
             id: ext.extensionId,
             icon: ext.iconURL,
             inset_icon: ext.insetIconURL,
@@ -191,7 +191,7 @@ const loadBuiltinExtension = dispatch => {
             requirement: ext.requirement,
             api: 0,
             version: '1.0.0'
-        }, new ClipCCExtension.Extension());
+        }, new ScratchExtension.Extension());
     }
 };
 
@@ -203,7 +203,7 @@ const initExtensionAPI = (gui, vm, blocks) => {
         document: document,
         window: window
     };
-    ClipCCExtension.api.registExtensionAPI(apiInstance);
+    ScratchExtension.api.registExtensionAPI(apiInstance);
 };
 
 const loadSettings = (dispatch, id, settings) => {
@@ -231,13 +231,13 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
         if ('info.json' in zipData.files) {
             const content = await zipData.files['info.json'].async('text');
             info = JSON.parse(content);
-            if (ClipCCExtension.extensionManager.exist(info.id)) {
+            if (ScratchExtension.extensionManager.exist(info.id)) {
                 log.warn('reloading extension...');
                 try {
-                    ClipCCExtension.extensionManager.removeInstance(info.id);
-                    ClipCCExtension.extensionManager.unloadExtensions(
+                    ScratchExtension.extensionManager.removeInstance(info.id);
+                    ScratchExtension.extensionManager.unloadExtensions(
                         [info.id],
-                        extension => ClipCCExtension.api.getVmInstance().extensionManager.unloadExtensionURL(info.id)
+                        extension => ScratchExtension.api.getVmInstance().extensionManager.unloadExtensionURL(info.id)
                     );
                     dispatch(disableExtension(info.id));
                     isReload = true;
@@ -309,7 +309,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
         };
 
         if (settings) loadSettings(dispatch, info.id, settings);
-        ClipCCExtension.extensionManager.addInstance(info.id, info, instance);
+        ScratchExtension.extensionManager.addInstance(info.id, info, instance);
         dispatch(addLocales(locale));
         dispatch(updateLocale());
         dispatch(initExtension(extensionInfo));
@@ -320,7 +320,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
         const Extension = vm.runInThisContext(file);
         const instance = new Extension();
         info = instance.getInfo();
-        const apiInstance = new ClipCCExtension.CompatibleExtension(instance);
+        const apiInstance = new ScratchExtension.CompatibleExtension(instance);
         const extensionInfo = {
             extensionId: info.id,
             iconURL: info.blockIconURL,
@@ -334,7 +334,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
             fileContent: file
         };
 
-        ClipCCExtension.extensionManager.addInstance(info.id, {
+        ScratchExtension.extensionManager.addInstance(info.id, {
             id: info.id,
             icon: info.blockIconURL,
             inset_icon: info.blockIconURL,

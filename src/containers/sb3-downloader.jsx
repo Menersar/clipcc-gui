@@ -87,7 +87,7 @@ class SB3Downloader extends React.Component {
                             accept: {'application/x.scratch.sb3': ['.sb3']}
                         },
                         {
-                            description: 'ClipCC File',
+                            description: 'Scratch File',
                             accept: {'application/x.scratch.cc3': ['.cc3']}
                         }
                     ],

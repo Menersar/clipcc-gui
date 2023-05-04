@@ -55,8 +55,8 @@ import HTTPIOInsetImage from './HTTPIO/clipcc.httpio-small.svg';
 import JSONImage from './JSON/JSON.png';
 import JSONInsetImage from './JSON/ccjson-small.svg';
 
-import ClipCCDefaultImage from './clipcc/CCUnknownExtension.jpg';
-import ClipCCDefaultInsetImage from './clipcc/CCUnknownExtension.svg';
+import ScratchDefaultImage from './scratch/CCUnknownExtension.jpg';
+import ScratchDefaultInsetImage from './scratch/CCUnknownExtension.svg';
 
 export default [
     {

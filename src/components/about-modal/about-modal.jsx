@@ -20,7 +20,7 @@ const messages = defineMessages({
         id: 'gui.aboutModal.aboutModalTitle'
     },
     appVersion: {
-        defaultMessage: 'ClipCC Version',
+        defaultMessage: 'Scratch Version',
         description: 'Label for showing version',
         id: 'gui.aboutModal.appVersion'
     },
@@ -71,10 +71,10 @@ const AboutModal = ({
                 {': '}
                 <span>{compileTime}</span>
             </p>
-            {isScratchDesktop() && typeof global.ClipCC !== 'undefined' ? (
+            {isScratchDesktop() && typeof global.Scratch !== 'undefined' ? (
                 ['Electron', 'Chrome', 'Node', 'Tauri'].map(component => {
-                    if (global.ClipCC.versions &&
-                        typeof global.ClipCC.versions[component.toLowerCase()] !== 'undefined'
+                    if (global.Scratch.versions &&
+                        typeof global.Scratch.versions[component.toLowerCase()] !== 'undefined'
                     ) {
                         return (
                             <p key={component}>
@@ -83,7 +83,7 @@ const AboutModal = ({
                                     {...messages.desktopComponentVersion}
                                 /></strong>
                                 {': '}
-                                <span>{global.ClipCC.versions && global.ClipCC.versions[component.toLowerCase()]}</span>
+                                <span>{global.Scratch.versions && global.Scratch.versions[component.toLowerCase()]}</span>
                             </p>
                         );
                     }

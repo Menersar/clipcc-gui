@@ -54,27 +54,27 @@ const messages = defineMessages({
     },
     layout: {
         defaultMessage: 'Layout Style',
-        description: 'Label of ClipCC layout',
+        description: 'Label of Scratch layout',
         id: 'gui.settingsModal.layout.label'
     },
     scratch1: {
         defaultMessage: 'Scratch 1.4',
-        description: 'Label of ClipCC layout',
+        description: 'Label of Scratch layout',
         id: 'gui.settingsModal.layout.scratch1'
     },
     scratch2: {
         defaultMessage: 'Scratch 2.0',
-        description: 'Label of ClipCC layout',
+        description: 'Label of Scratch layout',
         id: 'gui.settingsModal.layout.scratch2'
     },
     scratch3: {
         defaultMessage: 'Scratch 3.0',
-        description: 'Label of ClipCC layout',
+        description: 'Label of Scratch layout',
         id: 'gui.settingsModal.layout.scratch3'
     },
     darkmode: {
         defaultMessage: 'Theme',
-        description: 'Label of ClipCC dark mode',
+        description: 'Label of Scratch dark mode',
         id: 'gui.settingsModal.darkmode.label'
     },
     darkmodeSystem: {

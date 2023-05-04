@@ -83,7 +83,7 @@ import dropdownCaret from './dropdown-caret.svg';
 import languageIcon from '../language-selector/language-icon.svg';
 import aboutIcon from './icon--about.svg';
 
-import scratchLogo from './clipcc3_logo_white.svg';
+import scratchLogo from './scratch-logo.svg';
 
 import sharedMessages from '../../lib/shared-messages';
 
@@ -398,7 +398,7 @@ class MenuBar extends React.Component {
         const settingsMessage = (
             <FormattedMessage
                 defaultMessage="Settings"
-                description="Menu bar item for configuate clipcc"
+                description="Menu bar item for configuate scratch"
                 id="gui.menuBar.settings"
             />
         );
@@ -449,7 +449,7 @@ class MenuBar extends React.Component {
                     <div className={styles.fileGroup}>
                         <div className={classNames(styles.menuBarItem)}>
                             <img
-                                alt="ClipCC"
+                                alt="Scratch"
                                 className={classNames(styles.scratchLogo, {
                                     [styles.clickable]: typeof this.props.onClickLogo !== 'undefined'
                                 })}

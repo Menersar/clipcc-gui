@@ -1,4 +1,4 @@
-import lazyClipCCBlock from './lazy-blocks';
+import lazyScratchBlock from './lazy-blocks';
 
 const categorySeparator = '<sep gap="36"/>';
 
@@ -7,9 +7,9 @@ const blockSeparator = '<sep gap="36"/>'; // At default scale, about 28px
 const ScratchBlocks = {
     ScratchMsgs: {
         translate: (messageId, defaultMessage) => {
-            if (lazyClipCCBlock.loaded()) {
-                const ClipCCBlocks = lazyClipCCBlock.get();
-                return ClipCCBlocks.ScratchMsgs.translate(messageId, defaultMessage);
+            if (lazyScratchBlock.loaded()) {
+                const ScratchBlocks = lazyScratchBlock.get();
+                return ScratchBlocks.ScratchMsgs.translate(messageId, defaultMessage);
             }
             return defaultMessage;
         }
@@ -646,7 +646,7 @@ const sensing = function (isInitialSetup, isStage, targetId, hideNonOriginalBloc
         ${blockSeparator}
         ${hideNonOriginalBlocks ? '' : `
         <block type="sensing_operatingsystem"/>
-        <block type="sensing_clipcc_version"/>
+        <block type="sensing_scratch_version"/>
         <block type="sensing_isturbomode"/>
         <block type="sensing_turnonturbomode"/>
         <block type="sensing_turnoffturbomode"/>

@@ -5,7 +5,7 @@ import React from 'react';
 import VM from 'clipcc-vm';
 import {connect} from 'react-redux';
 import {defineMessages, injectIntl, FormattedMessage} from 'react-intl';
-import ClipCCExtension, {error} from 'clipcc-extension';
+import ScratchExtension, {error} from 'clipcc-extension';
 import log from '../lib/log';
 
 import LibraryComponent from '../components/library/library.jsx';
@@ -24,7 +24,7 @@ import {
 import {loadExtensionFromFile} from '../lib/extension-manager.js';
 import {isScratchDesktop} from '../lib/isScratchDesktop';
 
-global.ClipCCExtension = ClipCCExtension;
+global.ScratchExtension = ScratchExtension;
 
 const messages = defineMessages({
     extensionTitle: {
@@ -125,8 +125,8 @@ class ExtensionLibrary extends React.PureComponent {
     }
     handleRequestClose () {
         try {
-            this.loadOrder = ClipCCExtension.extensionManager.getExtensionLoadOrder(this.willLoad);
-            this.unloadOrder = ClipCCExtension.extensionManager.getExtensionUnloadOrder(this.willUnload);
+            this.loadOrder = ScratchExtension.extensionManager.getExtensionLoadOrder(this.willLoad);
+            this.unloadOrder = ScratchExtension.extensionManager.getExtensionUnloadOrder(this.willUnload);
             this.willLoadDependency = this.loadOrder.filter(v => !this.willLoad.includes(v.id)).map(v => v.id);
             this.willUnloadDependency = this.unloadOrder.filter(v => !this.willUnload.includes(v));
             if (this.loadOrder.length || this.unloadOrder.length) {
@@ -249,7 +249,7 @@ class ExtensionLibrary extends React.PureComponent {
     handleClickExtensionStore () {
         /*
         if (isScratchDesktop()) {
-            return window.ClipCC.ipc.send('open-extension-store');
+            return window.Scratch.ipc.send('open-extension-store');
         }
         */
         if (!this.extensionChannel) {
@@ -264,14 +264,14 @@ class ExtensionLibrary extends React.PureComponent {
             status=yes`);
     }
     handleMsgboxConfirm () {
-        ClipCCExtension.extensionManager.loadExtensionsWithMode(
+        ScratchExtension.extensionManager.loadExtensionsWithMode(
             this.loadOrder,
             extension => this.props.vm.extensionManager.loadExtensionURL(extension)
         );
         for (const extension of this.loadOrder) {
             this.props.setExtensionEnable(extension.id);
         }
-        ClipCCExtension.extensionManager.unloadExtensions(
+        ScratchExtension.extensionManager.unloadExtensions(
             this.unloadOrder,
             extension => this.props.vm.extensionManager.unloadExtensionURL(extension)
         );

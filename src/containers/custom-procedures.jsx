@@ -4,7 +4,7 @@ import defaultsDeep from 'lodash.defaultsdeep';
 import PropTypes from 'prop-types';
 import React from 'react';
 import CustomProceduresComponent from '../components/custom-procedures/custom-procedures.jsx';
-import lazyClipCCBlock from '../lib/lazy-blocks';
+import lazyScratchBlock from '../lib/lazy-blocks';
 
 import {connect} from 'react-redux';
 
@@ -35,7 +35,7 @@ class CustomProcedures extends React.Component {
         }
     }
     setBlocks (blocksRef) {
-        const ScratchBlocks = lazyClipCCBlock.get();
+        const ScratchBlocks = lazyScratchBlock.get();
         if (!blocksRef) return;
         this.blocks = blocksRef;
         const workspaceConfig = defaultsDeep({},

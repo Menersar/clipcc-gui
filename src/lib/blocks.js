@@ -1,4 +1,4 @@
-import lazyClipCCBlock from './lazy-blocks';
+import lazyScratchBlock from './lazy-blocks';
 import blockToImage from './backpack/block-to-image';
 import jpegThumbnail from './backpack/jpeg-thumbnail';
 
@@ -8,7 +8,7 @@ import jpegThumbnail from './backpack/jpeg-thumbnail';
  * @return {ScratchBlocks} ScratchBlocks connected with the vm
  */
 export default function (vm) {
-    const ScratchBlocks = lazyClipCCBlock.get();
+    const ScratchBlocks = lazyScratchBlock.get();
     const jsonForMenuBlock = function (name, menuOptionsFn, colors, start) {
         return {
             message0: '%1',

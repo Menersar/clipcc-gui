@@ -6,7 +6,7 @@ import {appVersion} from '../lib/app-info';
 const SET_VM = 'clipcc-gui/vm/SET_VM';
 const defaultVM = new VM({appVersion, extensionManager});
 defaultVM.attachStorage(storage);
-console.log(`%cClipCC ${appVersion}`, 'font-size:32px;');
+console.log(`%cScratch ${appVersion}`, 'font-size:32px;');
 const initialState = defaultVM;
 
 const reducer = function (state, action) {

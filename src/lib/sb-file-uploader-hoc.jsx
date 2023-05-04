@@ -89,7 +89,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                     const [handle] = await window.showOpenFilePicker({
                         types: [
                             {
-                                description: 'ClipCC File',
+                                description: 'Scratch File',
                                 accept: {
                                     'application/x.scratch.sb3': ['.sb', '.sb2', '.sb3', '.cc3']
                                 }

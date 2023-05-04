@@ -136,7 +136,7 @@ function getPlugins () {
         new HtmlWebpackPlugin({
             chunks: ['lib.min', 'gui'],
             template: 'src/playground/index.ejs',
-            title: 'ClipCC Editor',
+            title: 'Scratch Editor',
             scriptLoading: 'defer',
             enablePWA: ENABLE_PWA,
             sentryConfig: process.env.SENTRY_CONFIG ? '"' + process.env.SENTRY_CONFIG + '"' : null
@@ -145,19 +145,19 @@ function getPlugins () {
             chunks: ['lib.min', 'blocksonly'],
             template: 'src/playground/index.ejs',
             filename: 'blocks-only.html',
-            title: 'ClipCC 3.0 GUI: Blocks Only Example'
+            title: 'Scratch 3.0 GUI: Blocks Only Example'
         }),
         new HtmlWebpackPlugin({
             chunks: ['lib.min', 'compatibilitytesting'],
             template: 'src/playground/index.ejs',
             filename: 'compatibility-testing.html',
-            title: 'ClipCC 3.0 GUI: Compatibility Testing'
+            title: 'Scratch 3.0 GUI: Compatibility Testing'
         }),
         new HtmlWebpackPlugin({
             chunks: ['lib.min', 'player'],
             template: 'src/playground/index.ejs',
             filename: 'player.html',
-            title: 'ClipCC 3.0 GUI: Player Example'
+            title: 'Scratch 3.0 GUI: Player Example'
         }),
         new CopyWebpackPlugin({
             patterns: [{
@@ -264,7 +264,7 @@ module.exports = [
         defaultsDeep({}, base, {
             target: 'web',
             entry: {
-                'clipcc-gui': './src/index.js'
+                'scratch-gui': './src/index.js'
             },
             output: {
                 libraryTarget: 'umd',

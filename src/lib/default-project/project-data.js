@@ -104,7 +104,7 @@ const projectData = translateFunction => {
         extensions: {},
         meta: {
             semver: '3.0.0',
-            editor: 'clipcc',
+            editor: 'scratch',
             vm: '3.1.11',
             agent: ''
         }

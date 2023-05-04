@@ -1,7 +1,7 @@
 {
-    "name": "ClipCC",
-    "short_name": "ClipCC",
-    "id": "com.codingclip.clipcc3",
+    "name": "Scratch",
+    "short_name": "Scratch",
+    "id": "com.codingclip.scratch3",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#4D97FF",
