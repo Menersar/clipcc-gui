@@ -61,19 +61,19 @@ const projectData = translateFunction => {
                 currentCostume: 0,
                 costumes: [
                     {
-                        assetId: '8503e5b283cf0a746478e000a67c7e6f',
+                        assetId: '0fb9be3e8397c983338cb71dc84d0b25',
                         name: 'smile',
                         bitmapResolution: 1,
-                        md5ext: '8503e5b283cf0a746478e000a67c7e6f.svg',
+                        md5ext: '0fb9be3e8397c983338cb71dc84d0b25.svg',
                         dataFormat: 'svg',
                         rotationCenterX: 37.354164123535156,
                         rotationCenterY: 45.80350112915039
                     },
                     {
-                        assetId: 'ade71c65863ef2b939bf573ab9cb0049',
+                        assetId: 'bcf454acf82e4504149f7ffe07081dbc',
                         name: 'ww',
                         bitmapResolution: 1,
-                        md5ext: 'ade71c65863ef2b939bf573ab9cb0049.svg',
+                        md5ext: 'bcf454acf82e4504149f7ffe07081dbc.svg',
                         dataFormat: 'svg',
                         rotationCenterX: 37.35414650815025,
                         rotationCenterY: 45.803517747595805

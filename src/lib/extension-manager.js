@@ -9,7 +9,7 @@ import mime from 'mime-types';
 import log from '../lib/log';
 import vm from 'vm';
 
-import ScratchExtension from 'clipcc-extension';
+import ScratchExtension from 'scratch-extension';
 
 import musicIconURL from './libraries/extensions/music/music.png';
 import musicInsetIconURL from './libraries/extensions/music/music-small.svg';

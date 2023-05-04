@@ -3115,26 +3115,6 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.1.tgz#b0433d0b4e9c847ef18868a4ef16fd5fc8271c48"
   integrity sha512-GRMWDxpOB6Dgk2E5Uo+3eEBvtOOlimMmpbFiKuLFnQzYDavtLFY3K5ona41jgN/WdRZtG7utuVSVTL4HbZHGkw==
 
-clipcc-block@3.1.8:
-  version "3.1.8"
-  resolved "https://registry.yarnpkg.com/clipcc-block/-/clipcc-block-3.1.8.tgz#33cf2a4d534bdbbe4ac674b73327249b7aa9f80e"
-  integrity sha512-OdSXYKMfN8Yo2jvJF+VqK3ncMTansngsZkw93+8XO3Bilzal3RoZ5gljPTxtrgWQ1jdjXUo8JcyfaNgV1l/+1w==
-  dependencies:
-    exports-loader "0.6.3"
-    imports-loader "0.6.5"
-    mocha "^6.2.2"
-    serialize-javascript "^3.1.0"
-  optionalDependencies:
-    google-closure-compiler-js "^20200112.0.0"
-    google-closure-compiler-linux "^20200112.0.0"
-    google-closure-compiler-osx "^20200112.0.0"
-    google-closure-compiler-windows "^20200112.0.0"
-
-clipcc-extension@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/clipcc-extension/-/clipcc-extension-0.2.0.tgz#30b792fb90863fd8df4631f73f49f6f67d3ee5a8"
-  integrity sha512-Oqu26y37Ncavogm9DR42nm7tXT3GZj4UJFVHM39GZ31agiTCyjZdRckXlfT/Dg6hohotiyTz5MxoL2OKa+Sxeg==
-
 clipcc-l10n@3.1.9:
   version "3.1.9"
   resolved "https://registry.yarnpkg.com/clipcc-l10n/-/clipcc-l10n-3.1.9.tgz#9f2e1659c9a4750ddbbd3b69eb9a04a22e2031bb"
@@ -3146,62 +3126,6 @@ clipcc-l10n@3.1.9:
     babel-plugin-react-intl "^3.0.1"
     form-data "^4.0.0"
     poeditor-api "^1.0.0"
-
-clipcc-paint@3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/clipcc-paint/-/clipcc-paint-3.1.4.tgz#8bf14528683734ca6a1e5c824353f7ffbd6ded8e"
-  integrity sha512-oiImIFVbYvjrSt70IVr0J0QdxTMktxvePe1fR1rnG6R0KdPNWTmGHubWtRjXdvyZnP2GRirAkzyvO6dvcgZFWA==
-  dependencies:
-    "@scratch/paper" "0.11.20200728195508"
-    classnames "2.2.5"
-    keymirror "0.1.1"
-    lodash.bindall "4.4.0"
-    lodash.omit "4.5.0"
-    minilog "3.1.0"
-    parse-color "1.0.0"
-    prop-types "^15.5.10"
-
-clipcc-render@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/clipcc-render/-/clipcc-render-3.0.0.tgz#0aea0646804cf1d16873bc7eb7345be97c58c21c"
-  integrity sha512-np2VDw3+1UG1b/BfbvhZCot3whTs4XH3lJLyxrrAvnwgUMryeCCvlM5H8QT9++ssY2pxJDl7IdCXmT1WZGXZOg==
-  dependencies:
-    grapheme-breaker "0.3.2"
-    hull.js "0.2.10"
-    ify-loader "1.0.4"
-    linebreak "0.3.0"
-    minilog "3.1.0"
-    raw-loader "^0.5.1"
-    scratch-storage "^1.0.0"
-    scratch-svg-renderer "0.2.0-prerelease.20210727023023"
-    twgl.js "4.4.0"
-
-clipcc-vm@3.1.13:
-  version "3.1.13"
-  resolved "https://registry.yarnpkg.com/clipcc-vm/-/clipcc-vm-3.1.13.tgz#d09ad1b6b43cc61988ff352202b50e34e172527d"
-  integrity sha512-KoXmzT74hltB5NM+nMws62LJTm2jsyk0WQHap3sXFkNLu28uCfdSZHupPsy6J/JPHxnWJCIOFmkHBuwuN9gEBg==
-  dependencies:
-    "@vernier/godirect" "1.5.0"
-    arraybuffer-loader "^1.0.6"
-    atob "2.1.2"
-    axios "^0.21.1"
-    btoa "1.2.1"
-    canvas-toBlob "1.0.0"
-    clipcc-l10n "3.1.9"
-    decode-html "2.0.0"
-    diff-match-patch "1.0.4"
-    format-message "6.2.1"
-    htmlparser2 "3.10.0"
-    http "^0.0.1-security"
-    immutable "3.8.2"
-    jszip "^3.1.5"
-    minilog "3.1.0"
-    scratch-parser "5.0.0"
-    scratch-sb1-converter "0.2.7"
-    scratch-translate-extension-languages "0.0.20191118205314"
-    socket.io-client "2.0.4"
-    text-encoding "0.7.0"
-    worker-loader "^1.1.1"
 
 cliui@^3.2.0:
   version "3.2.0"
@@ -10422,10 +10346,34 @@ scratch-audio@^0.1.0-prerelease.20200528195344:
     minilog "^3.0.1"
     startaudiocontext "1.2.1"
 
-scratch-paint@0.2.0-prerelease.20220816095955:
-  version "0.2.0-prerelease.20220816095955"
-  resolved "https://registry.yarnpkg.com/scratch-paint/-/scratch-paint-0.2.0-prerelease.20220816095955.tgz#9fae5a17d286d1ccfe51e677319b222d3c7d91d3"
-  integrity sha512-GWza6ZL86N1gi109DNL1aR0XtTT6hGf4bKApdhA6izkCh4qE4pZ1Mgjiepn/RwSf38ECsGBfvRTE2gl9eGO1rw==
+scratch-block@../modules/scratch-block:
+  version "3.1.8"
+  dependencies:
+    exports-loader "0.6.3"
+    imports-loader "0.6.5"
+    mocha "^6.2.2"
+    serialize-javascript "^3.1.0"
+  optionalDependencies:
+    google-closure-compiler-js "^20200112.0.0"
+    google-closure-compiler-linux "^20200112.0.0"
+    google-closure-compiler-osx "^20200112.0.0"
+    google-closure-compiler-windows "^20200112.0.0"
+
+scratch-extension@../modules/scratch-extension:
+  version "0.2.0"
+
+scratch-l10n@../modules/scratch-l10n:
+  version "3.1.9"
+  dependencies:
+    "@babel/cli" "^7.1.2"
+    "@babel/core" "^7.1.2"
+    "@formatjs/intl-pluralrules" "^4.3.2"
+    babel-plugin-react-intl "^3.0.1"
+    form-data "^4.0.0"
+    poeditor-api "^1.0.0"
+
+scratch-paint@../modules/scratch-paint:
+  version "3.1.4"
   dependencies:
     "@scratch/paper" "0.11.20200728195508"
     classnames "2.2.5"
@@ -10451,6 +10399,19 @@ scratch-render-fonts@1.0.0-prerelease.20210401210003:
   integrity sha512-sgU+LIXTLKk4f7FZOv/B61dpvmfpnlXFf912T6T4GpOfzx99JPRhXPyErZWuwPz8NEzthkhpO7iF2AqgzUxJfA==
   dependencies:
     base64-loader "1.0.0"
+
+scratch-render@../modules/scratch-render:
+  version "3.0.0"
+  dependencies:
+    grapheme-breaker "0.3.2"
+    hull.js "0.2.10"
+    ify-loader "1.0.4"
+    linebreak "0.3.0"
+    minilog "3.1.0"
+    raw-loader "^0.5.1"
+    scratch-storage "^1.0.0"
+    scratch-svg-renderer "0.2.0-prerelease.20210727023023"
+    twgl.js "4.4.0"
 
 scratch-sb1-converter@0.2.7:
   version "0.2.7"
@@ -10512,6 +10473,31 @@ scratch-translate-extension-languages@0.0.20191118205314:
   version "0.0.20191118205314"
   resolved "https://registry.yarnpkg.com/scratch-translate-extension-languages/-/scratch-translate-extension-languages-0.0.20191118205314.tgz#9f781cc0c89785faba8ae86775a4915225676284"
   integrity sha512-r0lvpgQjPMjbhI2wROrgoXzBhCvWJdkbAqJMfl2CdNqrwBpUXqLvNNtI3VtNLPJAcp9VfxEylkU9lVZ0gvU46Q==
+
+scratch-vm@../modules/scratch-vm:
+  version "3.1.13"
+  dependencies:
+    "@vernier/godirect" "1.5.0"
+    arraybuffer-loader "^1.0.6"
+    atob "2.1.2"
+    axios "^0.21.1"
+    btoa "1.2.1"
+    canvas-toBlob "1.0.0"
+    clipcc-l10n "3.1.9"
+    decode-html "2.0.0"
+    diff-match-patch "1.0.4"
+    format-message "6.2.1"
+    htmlparser2 "3.10.0"
+    http "^0.0.1-security"
+    immutable "3.8.2"
+    jszip "^3.1.5"
+    minilog "3.1.0"
+    scratch-parser "5.0.0"
+    scratch-sb1-converter "0.2.7"
+    scratch-translate-extension-languages "0.0.20191118205314"
+    socket.io-client "2.0.4"
+    text-encoding "0.7.0"
+    worker-loader "^1.1.1"
 
 select-hose@^2.0.0:
   version "2.0.0"

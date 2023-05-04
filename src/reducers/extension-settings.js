@@ -1,4 +1,4 @@
-const NEW_EXTENSION = 'clipcc-gui/extension-settings/NEW_EXTENSION';
+const NEW_EXTENSION = 'scratch-gui/extension-settings/NEW_EXTENSION';
 
 const initialState = {};
 

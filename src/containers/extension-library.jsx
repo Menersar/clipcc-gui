@@ -2,10 +2,10 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import VM from 'clipcc-vm';
+import VM from 'scratch-vm';
 import {connect} from 'react-redux';
 import {defineMessages, injectIntl, FormattedMessage} from 'react-intl';
-import ScratchExtension, {error} from 'clipcc-extension';
+import ScratchExtension, {error} from 'scratch-extension';
 import log from '../lib/log';
 
 import LibraryComponent from '../components/library/library.jsx';

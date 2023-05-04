@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import bindAll from 'lodash.bindall';
 import {defineMessages, injectIntl} from 'react-intl';
-import VM from 'clipcc-vm';
+import VM from 'scratch-vm';
 
 import SettingsComponent from '../components/settings-modal/settings-modal.jsx';
 

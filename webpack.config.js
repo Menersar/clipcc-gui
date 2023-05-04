@@ -54,7 +54,7 @@ const base = {
             include: [
                 path.resolve(__dirname, 'src'),
                 /node_modules[\\/]scratch-[^\\/]+[\\/]src/,
-                /node_modules[\\/]clipcc-[^\\/]+[\\/]src/,
+                // /node_modules[\\/]clipcc-[^\\/]+[\\/]src/,
                 /node_modules[\\/]pify/,
                 /node_modules[\\/]@vernier[\\/]godirect/
             ],
@@ -170,7 +170,7 @@ function getPlugins () {
         }),
         new CopyWebpackPlugin({
             patterns: [{
-                from: 'node_modules/clipcc-block/media',
+                from: 'node_modules/scratch-block/media',
                 to: 'static/blocks-media'
             }]
         }),
@@ -184,7 +184,7 @@ function getPlugins () {
         new CopyWebpackPlugin({
             patterns: [{
                 from: 'extension-worker.js',
-                context: 'node_modules/clipcc-vm/dist/web'
+                context: 'node_modules/scratch-vm/dist/web'
             }]
         })
     ]);
@@ -290,14 +290,14 @@ module.exports = [
             plugins: base.plugins.concat([
                 new CopyWebpackPlugin({
                     patterns: [{
-                        from: 'node_modules/clipcc-block/media',
+                        from: 'node_modules/scratch-block/media',
                         to: 'static/blocks-media'
                     }]
                 }),
                 new CopyWebpackPlugin({
                     patterns: [{
                         from: 'extension-worker.{js,js.map}',
-                        context: 'node_modules/clipcc-vm/dist/web'
+                        context: 'node_modules/scratch-vm/dist/web'
                     }]
                 }),
                 // Include library JSON files for scratch-desktop to use for downloading

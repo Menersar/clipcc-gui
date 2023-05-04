@@ -1,9 +1,9 @@
-import VM from 'clipcc-vm';
+import VM from 'scratch-vm';
 import storage from '../lib/storage';
-import {extensionManager} from 'clipcc-extension';
+import {extensionManager} from 'scratch-extension';
 import {appVersion} from '../lib/app-info';
 
-const SET_VM = 'clipcc-gui/vm/SET_VM';
+const SET_VM = 'scratch-gui/vm/SET_VM';
 const defaultVM = new VM({appVersion, extensionManager});
 defaultVM.attachStorage(storage);
 console.log(`%cScratch ${appVersion}`, 'font-size:32px;');

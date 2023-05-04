@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import {mount} from 'enzyme';
-import VM from 'clipcc-vm';
+import VM from 'scratch-vm';
 
 import vmListenerHOC from '../../../src/lib/vm-listener-hoc.jsx';
 
@@ -64,7 +64,7 @@ describe('VMListenerHOC', () => {
         const editingTarget = 'id';
         vm.emit('targetsUpdate', {targetList, editingTarget});
         const actions = store.getActions();
-        expect(actions[0].type).toEqual('clipcc-gui/targets/UPDATE_TARGET_LIST');
+        expect(actions[0].type).toEqual('scratch-gui/targets/UPDATE_TARGET_LIST');
         expect(actions[0].targets).toEqual(targetList);
         expect(actions[0].editingTarget).toEqual(editingTarget);
     });

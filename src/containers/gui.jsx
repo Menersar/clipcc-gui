@@ -3,7 +3,7 @@ import React from 'react';
 import {compose} from 'redux';
 import {connect} from 'react-redux';
 import ReactModal from 'react-modal';
-import VM from 'clipcc-vm';
+import VM from 'scratch-vm';
 import {injectIntl} from 'react-intl';
 import bindAll from 'lodash.bindall';
 

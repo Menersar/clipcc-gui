@@ -5,10 +5,8 @@ import Box from '../box/box.jsx';
 import {defineMessages, injectIntl, FormattedMessage} from 'react-intl';
 import Modal from '../../containers/modal.jsx';
 import styles from './about-modal.css';
-import logo from './clipcc3_logo.svg';
-import telegram from './telegram.svg';
-import qq from './qq.svg';
-import discord from './discord.svg';
+import logo from './scratch-logo.svg';
+import github from './github.svg';
 
 import {appVersion, appVersionFull, compileTime, isProd} from '../../lib/app-info';
 import {isScratchDesktop} from '../../lib/isScratchDesktop';
@@ -40,7 +38,7 @@ const messages = defineMessages({
         id: 'gui.aboutModal.compileTime'
     },
     licenseContent: {
-        defaultMessage: 'GNU Affero General Public License v3',
+        defaultMessage: 'BSD-3-Clause license',
         description: 'Content for showing license',
         id: 'gui.aboutModal.licenseContent'
     }
@@ -96,39 +94,15 @@ const AboutModal = ({
             </p>
             <div className={styles.contact}>
                 <a
-                    href="https://t.me/ClipCChat"
+                    href="https://github.com/Menersar"
                     target="_blank"
                     rel="noreferrer"
                 >
                     <img
                         draggable={false}
-                        alt="Telegram"
-                        title="Telegram"
-                        src={telegram}
-                    />
-                </a>
-                <a
-                    href="https://jq.qq.com/?_wv=1027&k=DkE5wPog"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <img
-                        draggable={false}
-                        alt="QQ"
-                        title="QQ"
-                        src={qq}
-                    />
-                </a>
-                <a
-                    href="https://discord.gg/uuyHNBH"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <img
-                        draggable={false}
-                        alt="Discord"
-                        title="Discord"
-                        src={discord}
+                        alt="GitHub"
+                        title="GitHub"
+                        src={github}
                     />
                 </a>
             </div>

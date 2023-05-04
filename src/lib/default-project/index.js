@@ -2,8 +2,8 @@ import projectData from './project-data';
 
 /* eslint-disable import/no-unresolved,camelcase */
 import backdrop from '!raw-loader!./cd21514d0531fdffb22204e0ec5ed84a.svg';
-import sparrow_smile from '!raw-loader!./8503e5b283cf0a746478e000a67c7e6f.svg';
-import sparrow_ww from '!raw-loader!./ade71c65863ef2b939bf573ab9cb0049.svg';
+import sparrow_smile from '!raw-loader!./0fb9be3e8397c983338cb71dc84d0b25.svg';
+import sparrow_ww from '!raw-loader!./bcf454acf82e4504149f7ffe07081dbc.svg';
 import chatter from '!arraybuffer-loader!./fd8543abeeba255072da239223d2d342.wav';
 
 /* eslint-enable import/no-unresolved,camelcase */
@@ -23,12 +23,12 @@ const defaultProject = translator => {
         dataFormat: 'SVG',
         data: encoder.encode(backdrop)
     }, {
-        id: '8503e5b283cf0a746478e000a67c7e6f',
+        id: '0fb9be3e8397c983338cb71dc84d0b25',
         assetType: 'ImageVector',
         dataFormat: 'SVG',
         data: encoder.encode(sparrow_smile)
     }, {
-        id: 'ade71c65863ef2b939bf573ab9cb0049',
+        id: 'bcf454acf82e4504149f7ffe07081dbc',
         assetType: 'ImageVector',
         dataFormat: 'SVG',
         data: encoder.encode(sparrow_ww)

@@ -2,7 +2,7 @@ import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {defineMessages, injectIntl} from 'react-intl';
-import VM from 'clipcc-vm';
+import VM from 'scratch-vm';
 
 import {getCostumeLibrary} from '../lib/libraries/async-load-libraries.js';
 import spriteTags from '../lib/libraries/sprite-tags';

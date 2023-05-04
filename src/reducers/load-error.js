@@ -1,4 +1,4 @@
-const SET_LOAD_ERROR = 'clipcc-gui/load-error/SET_LOAD_ERROR';
+const SET_LOAD_ERROR = 'scratch-gui/load-error/SET_LOAD_ERROR';
 
 const initialState = {
     errorId: '',

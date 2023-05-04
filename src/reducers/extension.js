@@ -1,6 +1,6 @@
-const EXTENSION_ENABLE = 'clipcc-gui/extension/EXTENSION_ENABLE';
-const EXTENSION_DISABLE = 'clipcc-gui/extension/EXTENSION_DISABLE';
-const EXTENSION_INIT = 'clipcc-gui/extension/EXTENSION_INIT';
+const EXTENSION_ENABLE = 'scratch-gui/extension/EXTENSION_ENABLE';
+const EXTENSION_DISABLE = 'scratch-gui/extension/EXTENSION_DISABLE';
+const EXTENSION_INIT = 'scratch-gui/extension/EXTENSION_INIT';
 
 const initialState = {
     extension: {}

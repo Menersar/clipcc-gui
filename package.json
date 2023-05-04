@@ -1,8 +1,8 @@
 {
-  "name": "clipcc-gui",
+  "name": "scratch-gui",
   "version": "3.1.15",
-  "description": "GraphicaL User Interface for Clip CC",
-  "main": "./dist/clipcc-gui.js",
+  "description": "GraphicaL User Interface for Scratch",
+  "main": "./dist/scratch-gui.js",
   "scripts": {
     "build": "yarn run genmeta && yarn run clean && webpack --no-progress --colors --bail",
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
@@ -24,12 +24,12 @@
     "build:dist": "STATIC_PATH=static BUILD_MODE=dist NODE_ENV=production yarn run build",
     "build:pwa": "NODE_ENV=production ENABLE_PWA=true ENABLE_HTTPS=true yarn run build"
   },
-  "author": "Clip Team",
+  "author": "Scratch Team",
   "license": "AGPL-3.0",
-  "homepage": "https://github.com/LLK/scratch-gui",
+  "homepage": "https://github.com/Menersar/scratch-gui",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/LLK/scratch-gui.git"
+    "url": "git+ssh://git@github.com/Menersar/scratch-gui.git"
   },
   "dependencies": {
     "@sentry/react": "^6.16.1",
@@ -39,12 +39,12 @@
     "base64-loader": "1.0.0",
     "bowser": "1.9.4",
     "classnames": "2.2.6",
-    "clipcc-block": "3.1.8",
-    "clipcc-extension": "^0.2.0",
-    "clipcc-l10n": "3.1.9",
-    "clipcc-paint": "3.1.4",
-    "clipcc-render": "^3.0.0",
-    "clipcc-vm": "3.1.13",
+    "scratch-block": "../modules/scratch-block",
+    "scratch-extension": "../modules/scratch-extension",
+    "scratch-l10n": "../modules/scratch-l10n",
+    "scratch-paint": "../modules/scratch-paint",
+    "scratch-render": "../modules/scratch-render",
+    "scratch-vm": "../modules/scratch-vm",
     "computed-style-to-inline-style": "3.0.0",
     "copy-webpack-plugin": "6.4.1",
     "core-js": "2.5.7",
@@ -92,7 +92,6 @@
     "redux": "4.1.2",
     "redux-throttle": "0.1.1",
     "scratch-audio": "^0.1.0-prerelease.20200528195344",
-    "scratch-paint": "0.2.0-prerelease.20220816095955",
     "scratch-render-fonts": "1.0.0-prerelease.20210401210003",
     "scratch-storage": "2.0.2",
     "scratch-svg-renderer": "^0.2.0-prerelease.20220912180225",

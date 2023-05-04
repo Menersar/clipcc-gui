@@ -2,7 +2,7 @@ import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {injectIntl, defineMessages} from 'react-intl';
-import VM from 'clipcc-vm';
+import VM from 'scratch-vm';
 
 import {getSpriteLibrary} from '../lib/libraries/async-load-libraries.js';
 import randomizeSpritePosition from '../lib/randomize-sprite-position';

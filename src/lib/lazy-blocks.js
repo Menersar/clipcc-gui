@@ -12,7 +12,7 @@ const get = () => {
 
 const load = (vm, callback) => {
     if (BlocksComponent) return Promise.resolve(BlocksComponent);
-    return import(/* webpackChunkName: "ccblocks" */'clipcc-block').then(data => {
+    return import(/* webpackChunkName: "ccblocks" */'scratch-block').then(data => {
         BlocksComponent = data.default;
         callback(blocks(vm));
         return BlocksComponent;

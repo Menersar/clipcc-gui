@@ -1,6 +1,6 @@
-const UPDATE = 'clipcc-gui/settings/UPDATE';
-const NEW_ITEM = 'clipcc-gui/settings/NEW_ITEM';
-const RESET_DEFAULT = 'clipcc-gui/settings/RESET_DEFAULT';
+const UPDATE = 'scratch-gui/settings/UPDATE';
+const NEW_ITEM = 'scratch-gui/settings/NEW_ITEM';
+const RESET_DEFAULT = 'scratch-gui/settings/RESET_DEFAULT';
 
 const defaultState = {
     layoutStyle: 'scratch3',

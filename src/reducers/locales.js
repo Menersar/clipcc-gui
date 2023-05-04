@@ -1,11 +1,11 @@
 import {cloneDeep} from 'lodash';
 
-import {isRtl} from 'clipcc-l10n';
-import editorMessages from 'clipcc-l10n/dist/editor-msgs';
+import {isRtl} from 'scratch-l10n';
+import editorMessages from 'scratch-l10n/dist/editor-msgs';
 
-const UPDATE_LOCALE = 'clipcc-gui/locales/UPDATE_LOCALE';
-const SELECT_LOCALE = 'clipcc-gui/locales/SELECT_LOCALE';
-const ADD_LOCALE = 'clipcc-gui/locales/ADD_LOCALE';
+const UPDATE_LOCALE = 'scratch-gui/locales/UPDATE_LOCALE';
+const SELECT_LOCALE = 'scratch-gui/locales/SELECT_LOCALE';
+const ADD_LOCALE = 'scratch-gui/locales/ADD_LOCALE';
 
 const DEFAULT_LANGUAGE = 'default';
 
