@@ -524,7 +524,7 @@ class MenuBar extends React.Component {
                                         >
                                             {this.props.intl.formatMessage(sharedMessages.loadFromComputerTitle)}
                                         </MenuItem>
-                                        <SB3Downloader>{(className, {cc3, sb3, saveToLastFile}) => (
+                                        <SB3Downloader>{(className, {sk, sb3, saveToLastFile}) => (
                                             <>
                                                 {window.showSaveFilePicker && this.props.isStandalone && (
                                                     <MenuItem
@@ -542,12 +542,12 @@ class MenuBar extends React.Component {
                                                 )}
                                                 <MenuItem
                                                     className={className}
-                                                    onClick={this.getSaveToComputerHandler(cc3)}
+                                                    onClick={this.getSaveToComputerHandler(sk)}
                                                 >
                                                     <FormattedMessage
-                                                        defaultMessage="Save .cc3 file to your computer"
+                                                        defaultMessage="Save .sk file to your computer"
                                                         description="Menu bar item for downloading a project to your computer" // eslint-disable-line max-len
-                                                        id="gui.menuBar.downloadToComputer.cc3"
+                                                        id="gui.menuBar.downloadToComputer.sk"
                                                     />
                                                 </MenuItem>
                                                 <MenuItem

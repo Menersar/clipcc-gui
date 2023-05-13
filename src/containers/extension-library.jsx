@@ -177,7 +177,7 @@ class ExtensionLibrary extends React.PureComponent {
     handleUploadExtension () {
         const input = document.createElement('input');
         input.setAttribute('type', 'file');
-        input.setAttribute('accept', '.js,.ccx,.scx');
+        input.setAttribute('accept', '.js,.skx,.scx');
         input.setAttribute('multiple', true);
         input.onchange = event => {
             const files = event.target.files;
@@ -199,7 +199,7 @@ class ExtensionLibrary extends React.PureComponent {
         if (event.data.action === 'add'){
             fetch(event.data.download)
                 .then(async response => {
-                    await this.props.loadExtensionFromFile(response.arrayBuffer(), 'ccx');
+                    await this.props.loadExtensionFromFile(response.arrayBuffer(), 'skx');
                     this.extensionChannel.postMessage({
                         action: 'addSuccess',
                         extensionId: event.data.extension
@@ -218,7 +218,7 @@ class ExtensionLibrary extends React.PureComponent {
         if (event.data.action === 'upd'){
             fetch(event.data.download)
                 .then(async response => {
-                    await this.props.loadExtensionFromFile(response.arrayBuffer(), 'ccx');
+                    await this.props.loadExtensionFromFile(response.arrayBuffer(), 'skx');
                     this.extensionChannel.postMessage({
                         action: 'addSuccess',
                         extensionId: event.data.extension

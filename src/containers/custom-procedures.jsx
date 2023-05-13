@@ -136,8 +136,8 @@ class CustomProcedures extends React.Component {
             return;
         }
         
-        // 这个bug需要配合clipcc-block修复
-        //我懒 屏蔽了 等LLK
+        // This bug needs to be fixed with scratch-block
+        // blocking it here; waiting for LLK
         /*
         if ((procCode_.split("%").length - 1) !== argumentIds_.length) {
             alert('Procedure name cannot contain the "%" character');

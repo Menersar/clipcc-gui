@@ -94,7 +94,7 @@ const AboutModal = ({
             </p>
             <div className={styles.contact}>
                 <a
-                    href="https://github.com/Menersar"
+                    href="https://github.com/Menersar/sidekick"
                     target="_blank"
                     rel="noreferrer"
                 >

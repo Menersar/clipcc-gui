@@ -46,17 +46,17 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
-import libraImage from './libra/Libra.png';
-import libraInsetImage from './libra/Libra-small.svg';
+import libraIconURL from './libra/libra.png';
+import libraInsetIconURL from './libra/libra-small.svg';
 
-import HTTPIOImage from './HTTPIO/HTTPIO.png';
-import HTTPIOInsetImage from './HTTPIO/clipcc.httpio-small.svg';
+import httpioIconURL from './httpio/httpio.png';
+import httpioInsetIconURL from './httpio/httpio-small.svg';
 
-import JSONImage from './JSON/JSON.png';
-import JSONInsetImage from './JSON/ccjson-small.svg';
+import jsonIconURL from './json/json.png';
+import jsonInsetIconURL from './json/json-small.svg';
 
-import ScratchDefaultImage from './scratch/CCUnknownExtension.jpg';
-import ScratchDefaultInsetImage from './scratch/CCUnknownExtension.svg';
+import sidekickIconURL from './sidekick/sidekick.jpg';
+import sidekickInsetIconURL from './sidekick/sidekick-small.svg';
 
 export default [
     {
@@ -103,19 +103,18 @@ export default [
         name: (
             <FormattedMessage
                 defaultMessage="HTTPIO"
-                description="HTTPIO Plugin"
-                id="gui.extension.HTTPIO.name"
+                description="Name for the 'HTTPIO' extension"
+                id="gui.extension.httpio.name"
             />
         ),
-        collaborator: 'Clipteam',
         extensionId: 'httpio',
-        iconURL: HTTPIOImage,
-        insetIconURL: HTTPIOInsetImage,
+        iconURL: httpioIconURL,
+        insetIconURL: httpioInsetIconURL,
         description: (
             <FormattedMessage
                 defaultMessage="Feel the charm of the Internet!"
-                description="HTTPIO Plugin"
-                id="gui.extension.HTTPIO.description"
+                description="Description for the 'HTTPIO' extension"
+                id="gui.extension.httpio.description"
             />
         ),
         featured: true,
@@ -126,18 +125,17 @@ export default [
             <FormattedMessage
                 defaultMessage="JSON"
                 description="Name for the 'JSON' extension"
-                id="gui.extension.ccjson.name"
+                id="gui.extension.json.name"
             />
         ),
-        collaborator: 'Clipteam',
-        extensionId: 'ccjson',
-        iconURL: JSONImage,
-        insetIconURL: JSONInsetImage,
+        extensionId: 'json',
+        iconURL: jsonIconURL,
+        insetIconURL: jsonInsetIconURL,
         description: (
             <FormattedMessage
                 defaultMessage="Useful JSON extension."
                 description="Description for the 'JSON' extension"
-                id="gui.extension.ccjson.description"
+                id="gui.extension.json.description"
             />
         ),
         featured: true

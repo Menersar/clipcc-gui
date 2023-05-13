@@ -46,13 +46,11 @@ body[theme='dark'] {
 
     /*
         Stop scrollbar popping in and out from scratch-blocks border issue
-        https://github.com/LLK/scratch-gui/issues/318
     */
     overflow-y: hidden;
 
     /*
         Prevent scrollbar to show when dragging an sprite out of the area of editor
-        https://github.com/Clipteam/clipcc-gui/issues/170
     */
     overflow-x: hidden;
 }

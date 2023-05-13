@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Vectornator for iOS (http://vectornator.io/) --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg height="100%" xml:space="preserve" viewBox="192 192 128 128" xmlns:vectornator="http://vectornator.io" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" version="1.1" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Vectornator for iOS
+(http://vectornator.io/) -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="100%" xml:space="preserve" viewBox="192 192 128 128"
+    xmlns:vectornator="http://vectornator.io" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" version="1.1"
+    style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
 <metadata>
 <vectornator:setting key="WDSnapToPoints" value="false"/>
 <vectornator:setting value="true" key="WDRulersVisible"/>
@@ -18,7 +23,7 @@
 <vectornator:setting key="VNDimensionsVisible" value="true"/>
 </metadata>
 <defs/>
-<g vectornator:layerName="图层 1" id="图层 1">
+<g vectornator:layerName="Layer 1" id="Layer_1">
 <g opacity="1">
 <path stroke-linejoin="round" d="M256+204.177C231.161+204.177+210.52+223.058+210.52+246.498C210.52+249.571+210.52+253.989+210.52+258.747C211.161+258.928+211.845+259.245+212.621+259.805C212.621+259.805+233.268+270.639+256.358+270.639C279.447+270.639+300.08+259.805+300.08+259.805C300.575+259.403+301.043+259.088+301.48+258.866C301.469+254.073+301.138+249.938+301.138+246.498C301.138+223.058+280.839+204.177+256+204.177Z" fill="#787878" stroke-linecap="round" stroke-width="2" opacity="1" stroke="#000000"/>
 <path fill="#000000" d="M243.766+221.671C248.663+221.671+252.513+227.259+252.513+233.906C252.513+240.553+248.663+246.155+243.766+246.155C238.868+246.155+235.018+240.553+235.018+233.906C235.018+227.259+238.868+221.671+243.766+221.671Z" opacity="1"/>

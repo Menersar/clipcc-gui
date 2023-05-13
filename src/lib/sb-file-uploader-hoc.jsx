@@ -91,7 +91,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                             {
                                 description: 'Scratch File',
                                 accept: {
-                                    'application/x.scratch.sb3': ['.sb', '.sb2', '.sb3', '.cc3']
+                                    'application/x.scratch.sb3': ['.sb', '.sb2', '.sb3', '.sk']
                                 }
                             }
                         ],
@@ -114,7 +114,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             } else {
                 // create <input> element and add it to DOM
                 this.inputElement = document.createElement('input');
-                this.inputElement.accept = '.sb,.sb2,.sb3,.cc3';
+                this.inputElement.accept = '.sb,.sb2,.sb3,.sk';
                 this.inputElement.style = 'display: none;';
                 this.inputElement.type = 'file';
                 this.inputElement.onchange = this.handleChange; // connects to step 3
@@ -176,8 +176,8 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         getProjectTitleFromFilename (fileInputFilename) {
             if (!fileInputFilename) return '';
             // only parse title with valid scratch project extensions
-            // (.sb, .sb2, and .sb3/.cc3)
-            const matches = fileInputFilename.match(/^(.*)\.(sb|cc)[23]?$/);
+            // (.sb, .sb2, .sb3 and .sk)
+            const matches = fileInputFilename.match(/^(.*)\.(sb|sk)[23]?$/);
             if (!matches) return '';
             return matches[1].substring(0, 100); // truncate project title to max 100 chars
         }
@@ -189,13 +189,13 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 const filename = this.fileToUpload && this.fileToUpload.name;
                 let loadingSuccess = false;
                 const fileExt = filename.substring(filename.lastIndexOf('.') + 1);
-                // If this is *.cc3 file, check and load its extensions in it.
-                if (fileExt === 'cc3') {
+                // If this is *.sk file, check and load its extensions in it.
+                if (fileExt === 'sk') {
                     const zipData = await JSZip.loadAsync(this.fileReader.result);
                     for (const file in zipData.files) {
-                        if (/^extensions\/.+\.ccx$/g.test(file)) {
+                        if (/^extensions\/.+\.skx$/g.test(file)) {
                             const data = await zipData.files[file].async('arraybuffer');
-                            await this.props.loadExtensionFromFile(data, 'ccx');
+                            await this.props.loadExtensionFromFile(data, 'skx');
                             // this.props.setExtensionEnable(id);
                         }
                     }

@@ -1,6 +1,6 @@
 import blocks from './blocks.js';
 /* eslint-disable linebreak-style */
-// 异步加载 clipcc-block
+// Loading scratch-block asynchronously
 let BlocksComponent = null;
 
 const loaded = () => !!BlocksComponent;
@@ -12,7 +12,7 @@ const get = () => {
 
 const load = (vm, callback) => {
     if (BlocksComponent) return Promise.resolve(BlocksComponent);
-    return import(/* webpackChunkName: "ccblocks" */'scratch-block').then(data => {
+    return import(/* webpackChunkName: "skblocks" */'scratch-block').then(data => {
         BlocksComponent = data.default;
         callback(blocks(vm));
         return BlocksComponent;

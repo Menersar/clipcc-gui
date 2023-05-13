@@ -70,7 +70,7 @@ class GUI extends React.Component {
         setIsScratchDesktop(this.props.isScratchDesktop);
         this.props.onStorageInit(storage);
         this.props.onVmInit(this.props.vm);
-        if (!api) { // cc - react-intl will remount all components after changing langauge
+        if (!api) { // sk - react-intl will remount all components after changing langauge
             api = this.extensionAPI = new extensionAPI(this);
             this.props.onLoadBuiltinExtension();
         } else {

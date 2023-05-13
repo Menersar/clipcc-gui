@@ -134,7 +134,7 @@ const ProjectFetcherHOC = function (WrappedComponent) {
         setProjectId: PropTypes.func
     };
     ProjectFetcherComponent.defaultProps = {
-        assetHost: 'https://api.codingclip.com/v1/',
+        assetHost: 'https://assets.scratch.mit.edu',
         projectHost: 'https://projects.scratch.mit.edu'
     };
 

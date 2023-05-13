@@ -39,16 +39,18 @@ import wedo2InsetIconURL from './libraries/extensions/wedo2/wedo-small.svg';
 
 import boostIconURL from './libraries/extensions/boost/boost.png';
 import boostInsetIconURL from './libraries/extensions/boost/boost-small.svg';
+
 import gdxforIconURL from './libraries/extensions/gdxfor/gdxfor.png';
 import gdxforInsetIconURL from './libraries/extensions/gdxfor/gdxfor-small.svg';
-import HTTPIOImage from './libraries/extensions/HTTPIO/HTTPIO.png';
-import HTTPIOInsetImage from './libraries/extensions/HTTPIO/clipcc.httpio-small.svg';
 
-import JSONImage from './libraries/extensions/JSON/JSON.png';
-import JSONInsetImage from './libraries/extensions/JSON/ccjson-small.svg';
+import httpioIconURL from './libraries/extensions/httpio/httpio.png';
+import httpioInsetIconURL from './libraries/extensions/httpio/httpio-small.svg';
 
-import ScratchDefaultImage from './libraries/extensions/scratch/CCUnknownExtension.jpg';
-import ScratchDefaultInsetImage from './libraries/extensions/scratch/CCUnknownExtension.svg';
+import jsonIconURL from './libraries/extensions/json/json.png';
+import jsonInsetIconURL from './libraries/extensions/json/json-small.svg';
+
+import sidekickIconURL from './libraries/extensions/sidekick/sidekick.jpg';
+import sidekickInsetIconURL from './libraries/extensions/sidekick/sidekick-small.svg';
 
 const builtinExtensions = [
     {
@@ -69,20 +71,20 @@ const builtinExtensions = [
     },
     {
         extensionId: 'httpio',
-        iconURL: HTTPIOImage,
-        insetIconURL: HTTPIOInsetImage,
-        author: 'Clip Team',
-        name: 'gui.extension.HTTPIO.name',
-        description: 'gui.extension.HTTPIO.description',
+        iconURL: httpioIconURL,
+        insetIconURL: httpioInsetIconURL,
+        author: 'Scratch Team',
+        name: 'gui.extension.httpio.name',
+        description: 'gui.extension.httpio.description',
         requirement: ['internet']
     },
     {
-        extensionId: 'ccjson',
-        iconURL: JSONImage,
-        insetIconURL: JSONInsetImage,
-        author: 'Clip Team',
-        name: 'gui.extension.ccjson.name',
-        description: 'gui.extension.ccjson.description'
+        extensionId: 'json',
+        iconURL: jsonIconURL,
+        insetIconURL: jsonInsetIconURL,
+        author: 'Scratch Team',
+        name: 'gui.extension.json.name',
+        description: 'gui.extension.json.description'
     },
     {
         extensionId: 'videoSensing',
@@ -222,7 +224,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
     let info = {};
     let isReload = false;
     switch (type) {
-    case 'ccx': {
+    case 'skx': {
         const zipData = await JSZip.loadAsync(file);
         let settings = null;
         let instance = null;
@@ -261,7 +263,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
             }
             info.api = 1;
         } else {
-            throw new Error('Cannot find \'info.json\' in ccx extension.');
+            throw new Error('Cannot find \'info.json\' in skx extension.');
         }
 
 
@@ -271,7 +273,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
             const ExtensionPrototype = script.runInThisContext();
             instance = new ExtensionPrototype();
         } else {
-            throw new Error('Cannot find \'main.js\' in ccx extension');
+            throw new Error('Cannot find \'main.js\' in skx extension');
         }
 
         // Load settings

@@ -1,7 +1,7 @@
 {
   "name": "scratch-gui",
   "version": "3.1.15",
-  "description": "GraphicaL User Interface for Scratch",
+  "description": "Graphical User Interface for creating and running Scratch 3.0 projects",
   "main": "./dist/scratch-gui.js",
   "scripts": {
     "build": "yarn run genmeta && yarn run clean && webpack --no-progress --colors --bail",
@@ -24,12 +24,12 @@
     "build:dist": "STATIC_PATH=static BUILD_MODE=dist NODE_ENV=production yarn run build",
     "build:pwa": "NODE_ENV=production ENABLE_PWA=true ENABLE_HTTPS=true yarn run build"
   },
-  "author": "Scratch Team",
-  "license": "AGPL-3.0",
-  "homepage": "https://github.com/Menersar/scratch-gui",
+  "author": "Massachusetts Institute of Technology",
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/LLK/scratch-gui#readme",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Menersar/scratch-gui.git"
+    "url": "https://github.com/LLK/scratch-gui.git"
   },
   "dependencies": {
     "@sentry/react": "^6.16.1",
@@ -39,12 +39,6 @@
     "base64-loader": "1.0.0",
     "bowser": "1.9.4",
     "classnames": "2.2.6",
-    "scratch-block": "../sidekick-modules/scratch-block",
-    "scratch-extension": "../sidekick-modules/scratch-extension",
-    "scratch-l10n": "../sidekick-modules/scratch-l10n",
-    "scratch-paint": "../sidekick-modules/scratch-paint",
-    "scratch-render": "../sidekick-modules/scratch-render",
-    "scratch-vm": "../sidekick-modules/scratch-vm",
     "computed-style-to-inline-style": "3.0.0",
     "copy-webpack-plugin": "6.4.1",
     "core-js": "2.5.7",
@@ -92,9 +86,15 @@
     "redux": "4.1.2",
     "redux-throttle": "0.1.1",
     "scratch-audio": "^0.1.0-prerelease.20200528195344",
+    "scratch-block": "file:..\\sidekick-modules\\scratch-block\\",
+    "scratch-extension": "file:..\\sidekick-modules\\scratch-extension\\",
+    "scratch-l10n": "file:..\\sidekick-modules\\scratch-l10n\\",
+    "scratch-paint": "file:..\\sidekick-modules\\scratch-paint\\",
+    "scratch-render": "file:..\\sidekick-modules\\scratch-render\\",
     "scratch-render-fonts": "1.0.0-prerelease.20210401210003",
     "scratch-storage": "2.0.2",
     "scratch-svg-renderer": "^0.2.0-prerelease.20220912180225",
+    "scratch-vm": "../sidekick-modules/scratch-vm",
     "startaudiocontext": "1.2.1",
     "style-loader": "^0.23.0",
     "terser-webpack-plugin": "v4",
