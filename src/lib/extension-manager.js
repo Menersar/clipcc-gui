@@ -183,7 +183,7 @@ const loadBuiltinExtension = dispatch => {
         }, new ScratchExtension.Extension());
         dispatch(initExtension(ext));
     }
-    // 弃用的扩展仍需要被加载，但是不会被显示
+    // Deprecated extensions will still need to be loaded, but will not be displayed
     for (const ext of deprecatedExtensions) {
         ScratchExtension.extensionManager.addInstance(ext.extensionId, {
             id: ext.extensionId,

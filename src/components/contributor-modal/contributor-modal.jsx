@@ -69,40 +69,20 @@ const ContributorModal = ({
             scrollbar
         >
             <strong>{intl.formatMessage(messages.majorDeveloper)}</strong>
-            <p>{contributorList.sinangentoo}</p>
-            <p>{contributorList.alexcui}</p>
-            <p>{contributorList.frank782}</p>
-            <p>{contributorList.hydrostic}</p>
+            <p>{contributorList.sidekickteam}</p>
             <strong>{intl.formatMessage(messages.developer)}</strong>
-            <p>{contributorList.stevexmh}</p>
-            <p>{contributorList.jasonxu}</p>
-            <p>{contributorList.solstice23}</p>
-            <p>{contributorList.e4361}</p>
-            <p>{contributorList.waterblock79}</p>
-            <p>{contributorList.sparrowhe}</p>
-            <p>{contributorList.editmr}</p>
+            <p>{contributorList.sidekickteam}</p>
             <strong>{intl.formatMessage(messages.designer)}</strong>
-            <p>{contributorList.zerlight}</p>
-            <p>{contributorList.soilzhu}</p>
+            <p>{contributorList.sidekickteam}</p>
             <strong>{intl.formatMessage(messages.advocates)}</strong>
-            <p>{contributorList.someoneyoung}</p>
-            <p>{contributorList.yuan3old}</p>
-            <p>{contributorList.jasonjia}</p>
-            <p>{contributorList.cyarice}</p>
-            <p>{contributorList.xiaoji4093}</p>
+            <p>{contributorList.sidekickteam}</p>
             <strong>{intl.formatMessage(messages.investor)}</strong>
-            <p>{contributorList.bleshi}</p>
-            <p>{contributorList.xiaoji4093}</p>
+            <p>{contributorList.sidekickteam}</p>
             <strong>{intl.formatMessage(messages.translator)}</strong>
-            <p>{contributorList.soilzhu}</p>
-            <p>{contributorList.lmlanmei}</p>
+            <p>{contributorList.sidekickteam}</p>
 
             <strong>{intl.formatMessage(messages.donor)}</strong>
-            <p>{contributorList.cyarice}</p>
-            <p>{contributorList.lyricepic}</p>
-            <p>{contributorList.unknown}</p>
-            <p>{contributorList.mbzzw}</p>
-            <p>{contributorList.afadian}</p>
+            <p>{contributorList.sidekickteam}</p>
             <strong>{intl.formatMessage(messages.andyou)}</strong>
         </Box>
     </Modal>
