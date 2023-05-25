@@ -89,9 +89,9 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                     const [handle] = await window.showOpenFilePicker({
                         types: [
                             {
-                                description: 'Scratch File',
+                                description: 'Sidekick File',
                                 accept: {
-                                    'application/x.scratch.sb3': ['.sb', '.sb2', '.sb3', '.sk']
+                                    'application/x.sidekick.sb3': ['.sb', '.sb2', '.sb3', '.sk']
                                 }
                             }
                         ],
@@ -175,7 +175,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         // used in step 6 below
         getProjectTitleFromFilename (fileInputFilename) {
             if (!fileInputFilename) return '';
-            // only parse title with valid scratch project extensions
+            // only parse title with valid sidekick project extensions
             // (.sb, .sb2, .sb3 and .sk)
             const matches = fileInputFilename.match(/^(.*)\.(sb|sk)[23]?$/);
             if (!matches) return '';
@@ -315,19 +315,19 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         loadExtensionFromFile: PropTypes.func.isRequired
     };
     const mapStateToProps = (state, ownProps) => {
-        const loadingState = state.scratchGui.projectState.loadingState;
+        const loadingState = state.sidekickGui.projectState.loadingState;
         const user = state.session && state.session.session && state.session.session.user;
         return {
             isLoadingUpload: getIsLoadingUpload(loadingState),
             isShowingWithoutId: getIsShowingWithoutId(loadingState),
             loadingState: loadingState,
-            projectChanged: state.scratchGui.projectChanged,
+            projectChanged: state.sidekickGui.projectChanged,
             setExtensionEnable: PropTypes.func.isRequired,
             userOwnsProject: ownProps.authorUsername && user &&
                 (ownProps.authorUsername === user.username),
-            vm: state.scratchGui.vm,
-            extension: state.scratchGui.extension.extension,
-            enableAutoSave: state.scratchGui.settings.autosave
+            vm: state.sidekickGui.vm,
+            extension: state.sidekickGui.extension.extension,
+            enableAutoSave: state.sidekickGui.settings.autosave
         };
     };
     const mapDispatchToProps = (dispatch, ownProps) => ({

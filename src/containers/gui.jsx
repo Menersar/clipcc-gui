@@ -56,7 +56,7 @@ import cloudManagerHOC from '../lib/cloud-manager-hoc.jsx';
 import {loadBuiltinExtension, initExtensionAPI} from '../lib/extension-manager.js';
 
 import GUIComponent from '../components/gui/gui.jsx';
-import {setIsScratchDesktop} from '../lib/isScratchDesktop.js';
+import {setIsSidekickDesktop} from '../lib/isSidekickDesktop.js';
 
 let api = null;
 
@@ -67,7 +67,7 @@ class GUI extends React.Component {
     }
     componentDidMount () {
         this.props.onRef(this);
-        setIsScratchDesktop(this.props.isScratchDesktop);
+        setIsSidekickDesktop(this.props.isSidekickDesktop);
         this.props.onStorageInit(storage);
         this.props.onVmInit(this.props.vm);
         if (!api) { // sk - react-intl will remount all components after changing langauge
@@ -94,7 +94,7 @@ class GUI extends React.Component {
     render () {
         if (this.props.isError) {
             throw new Error(
-                `Error in Scratch GUI [location=${window.location}]: ${this.props.error}`);
+                `Error in Sidekick GUI [location=${window.location}]: ${this.props.error}`);
         }
         const {
             /* eslint-disable no-unused-vars */
@@ -105,7 +105,7 @@ class GUI extends React.Component {
             error,
             errorModalVisible,
             isError,
-            isScratchDesktop,
+            isSidekickDesktop,
             isShowingProject,
             onProjectLoaded,
             onStorageInit,
@@ -152,7 +152,7 @@ GUI.propTypes = {
     isError: PropTypes.bool,
     isLoading: PropTypes.bool,
     loadingState: PropTypes.oneOf(LoadingStates),
-    isScratchDesktop: PropTypes.bool,
+    isSidekickDesktop: PropTypes.bool,
     isShowingProject: PropTypes.bool,
     loadingStateVisible: PropTypes.bool,
     onRef: PropTypes.func,
@@ -173,8 +173,9 @@ GUI.propTypes = {
 };
 
 GUI.defaultProps = {
-    isScratchDesktop: false,
-    onStorageInit: storageInstance => storageInstance.addOfficialScratchWebStores(),
+    isSidekickDesktop: false,
+    // !!!
+    onStorageInit: storageInstance => storageInstance.addOfficialSidekickWebStores(),
     onProjectLoaded: () => {},
     onUpdateProjectId: () => {},
     onRef: () => {},
@@ -182,8 +183,8 @@ GUI.defaultProps = {
 };
 
 const mapStateToProps = state => {
-    const loadingState = state.scratchGui.projectState.loadingState;
-    let darkMode = state.scratchGui.settings.darkMode;
+    const loadingState = state.sidekickGui.projectState.loadingState;
+    let darkMode = state.sidekickGui.settings.darkMode;
     if (darkMode === 'system') {
         if (matchMedia('(prefers-color-scheme: dark)').matches) {
             darkMode = 'dark';
@@ -192,40 +193,40 @@ const mapStateToProps = state => {
         }
     }
     return {
-        activeTabIndex: state.scratchGui.editorTab.activeTabIndex,
-        alertsVisible: state.scratchGui.alerts.visible,
-        backdropLibraryVisible: state.scratchGui.modals.backdropLibrary,
-        blocksTabVisible: state.scratchGui.editorTab.activeTabIndex === BLOCKS_TAB_INDEX,
-        blur: state.scratchGui.settings.blur,
-        cardsVisible: state.scratchGui.cards.visible,
-        connectionModalVisible: state.scratchGui.modals.connectionModal,
-        costumeLibraryVisible: state.scratchGui.modals.costumeLibrary,
-        costumesTabVisible: state.scratchGui.editorTab.activeTabIndex === COSTUMES_TAB_INDEX,
+        activeTabIndex: state.sidekickGui.editorTab.activeTabIndex,
+        alertsVisible: state.sidekickGui.alerts.visible,
+        backdropLibraryVisible: state.sidekickGui.modals.backdropLibrary,
+        blocksTabVisible: state.sidekickGui.editorTab.activeTabIndex === BLOCKS_TAB_INDEX,
+        blur: state.sidekickGui.settings.blur,
+        cardsVisible: state.sidekickGui.cards.visible,
+        connectionModalVisible: state.sidekickGui.modals.connectionModal,
+        costumeLibraryVisible: state.sidekickGui.modals.costumeLibrary,
+        costumesTabVisible: state.sidekickGui.editorTab.activeTabIndex === COSTUMES_TAB_INDEX,
         darkMode: darkMode,
-        error: state.scratchGui.projectState.error,
-        errorModalVisible: state.scratchGui.modals.errorModal,
+        error: state.sidekickGui.projectState.error,
+        errorModalVisible: state.sidekickGui.modals.errorModal,
         isError: getIsError(loadingState),
-        isFullScreen: state.scratchGui.mode.isFullScreen,
-        isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
+        isFullScreen: state.sidekickGui.mode.isFullScreen,
+        isPlayerOnly: state.sidekickGui.mode.isPlayerOnly,
         isRtl: state.locales.isRtl,
         isShowingProject: getIsShowingProject(loadingState),
         loadingState: loadingState,
-        loadingStateVisible: state.scratchGui.modals.loadingProject,
-        projectId: state.scratchGui.projectState.projectId,
-        soundsTabVisible: state.scratchGui.editorTab.activeTabIndex === SOUNDS_TAB_INDEX,
+        loadingStateVisible: state.sidekickGui.modals.loadingProject,
+        projectId: state.sidekickGui.projectState.projectId,
+        soundsTabVisible: state.sidekickGui.editorTab.activeTabIndex === SOUNDS_TAB_INDEX,
         targetIsStage: (
-            state.scratchGui.targets.stage &&
-            state.scratchGui.targets.stage.id === state.scratchGui.targets.editingTarget
+            state.sidekickGui.targets.stage &&
+            state.sidekickGui.targets.stage.id === state.sidekickGui.targets.editingTarget
         ),
-        telemetryModalVisible: state.scratchGui.modals.telemetryModal,
-        tipsLibraryVisible: state.scratchGui.modals.tipsLibrary,
-        settingsVisible: state.scratchGui.modals.settings,
-        aboutModalVisible: state.scratchGui.modals.about,
-        loadErrorModalVisible: state.scratchGui.modals.loadError,
-        contributorModalVisible: state.scratchGui.modals.contributor,
-        layoutStyle: state.scratchGui.settings.layoutStyle,
-        settings: state.scratchGui.settings,
-        vm: state.scratchGui.vm
+        telemetryModalVisible: state.sidekickGui.modals.telemetryModal,
+        tipsLibraryVisible: state.sidekickGui.modals.tipsLibrary,
+        settingsVisible: state.sidekickGui.modals.settings,
+        aboutModalVisible: state.sidekickGui.modals.about,
+        loadErrorModalVisible: state.sidekickGui.modals.loadError,
+        contributorModalVisible: state.sidekickGui.modals.contributor,
+        layoutStyle: state.sidekickGui.settings.layoutStyle,
+        settings: state.sidekickGui.settings,
+        vm: state.sidekickGui.vm
     };
 };
 

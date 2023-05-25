@@ -44,25 +44,25 @@ const closeMenu = menu => ({
 });
 const openAboutMenu = () => openMenu(MENU_ABOUT);
 const closeAboutMenu = () => closeMenu(MENU_ABOUT);
-const aboutMenuOpen = state => state.scratchGui.menus[MENU_ABOUT];
+const aboutMenuOpen = state => state.sidekickGui.menus[MENU_ABOUT];
 const openAccountMenu = () => openMenu(MENU_ACCOUNT);
 const closeAccountMenu = () => closeMenu(MENU_ACCOUNT);
-const accountMenuOpen = state => state.scratchGui.menus[MENU_ACCOUNT];
+const accountMenuOpen = state => state.sidekickGui.menus[MENU_ACCOUNT];
 const openFileMenu = () => openMenu(MENU_FILE);
 const closeFileMenu = () => closeMenu(MENU_FILE);
-const fileMenuOpen = state => state.scratchGui.menus[MENU_FILE];
+const fileMenuOpen = state => state.sidekickGui.menus[MENU_FILE];
 const openEditMenu = () => openMenu(MENU_EDIT);
 const closeEditMenu = () => closeMenu(MENU_EDIT);
-const editMenuOpen = state => state.scratchGui.menus[MENU_EDIT];
+const editMenuOpen = state => state.sidekickGui.menus[MENU_EDIT];
 const openOtherMenu = () => openMenu(MENU_OTHER);
 const closeOtherMenu = () => closeMenu(MENU_OTHER);
-const otherMenuOpen = state => state.scratchGui.menus[MENU_OTHER];
+const otherMenuOpen = state => state.sidekickGui.menus[MENU_OTHER];
 const openLanguageMenu = () => openMenu(MENU_LANGUAGE);
 const closeLanguageMenu = () => closeMenu(MENU_LANGUAGE);
-const languageMenuOpen = state => state.scratchGui.menus[MENU_LANGUAGE];
+const languageMenuOpen = state => state.sidekickGui.menus[MENU_LANGUAGE];
 const openLoginMenu = () => openMenu(MENU_LOGIN);
 const closeLoginMenu = () => closeMenu(MENU_LOGIN);
-const loginMenuOpen = state => state.scratchGui.menus[MENU_LOGIN];
+const loginMenuOpen = state => state.sidekickGui.menus[MENU_LOGIN];
 
 export {
     reducer as default,

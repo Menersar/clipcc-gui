@@ -2,7 +2,7 @@ import defineDynamicBlock from '../../../src/lib/define-dynamic-block';
 
 import BlockType from 'scratch-vm/src/extension-support/block-type';
 
-const MockScratchBlocks = {
+const MockSidekickBlocks = {
     OUTPUT_SHAPE_HEXAGONAL: 1,
     OUTPUT_SHAPE_ROUND: 2,
     OUTPUT_SHAPE_SQUARE: 3
@@ -57,7 +57,7 @@ class MockBlock {
     constructor (blockInfo, extendedOpcode) {
         // mimic Closure-style inheritance by mixing in `defineDynamicBlock` output as this instance's prototype
         // see also the `Blockly.Block` constructor
-        const prototype = defineDynamicBlock(MockScratchBlocks, categoryInfo, blockInfo, extendedOpcode);
+        const prototype = defineDynamicBlock(MockSidekickBlocks, categoryInfo, blockInfo, extendedOpcode);
         mixin(this, prototype);
         this.init();
 
@@ -107,7 +107,7 @@ describe('defineDynamicBlock', () => {
             extensions: ['scratch_extension'],
             inputsInline: true,
             nextConnection: true,
-            outputShape_: MockScratchBlocks.OUTPUT_SHAPE_SQUARE,
+            outputShape_: MockSidekickBlocks.OUTPUT_SHAPE_SQUARE,
             previousConnection: true,
             type: extendedOpcode
         });
@@ -123,7 +123,7 @@ describe('defineDynamicBlock', () => {
             // extensions: undefined, // no icon means no extension
             inputsInline: true,
             nextConnection: true,
-            outputShape_: MockScratchBlocks.OUTPUT_SHAPE_SQUARE,
+            outputShape_: MockSidekickBlocks.OUTPUT_SHAPE_SQUARE,
             previousConnection: true,
             type: extendedOpcode
         });
@@ -139,7 +139,7 @@ describe('defineDynamicBlock', () => {
             // extensions: undefined, // no icon means no extension
             inputsInline: true,
             nextConnection: false, // terminal
-            outputShape_: MockScratchBlocks.OUTPUT_SHAPE_SQUARE,
+            outputShape_: MockSidekickBlocks.OUTPUT_SHAPE_SQUARE,
             previousConnection: true,
             type: extendedOpcode
         });
@@ -157,7 +157,7 @@ describe('defineDynamicBlock', () => {
             inputsInline: true,
             // nextConnection: undefined, // reporter
             outputConnection: true, // reporter
-            outputShape_: MockScratchBlocks.OUTPUT_SHAPE_ROUND, // reporter
+            outputShape_: MockSidekickBlocks.OUTPUT_SHAPE_ROUND, // reporter
             // previousConnection: undefined, // reporter
             type: extendedOpcode
         });
@@ -175,7 +175,7 @@ describe('defineDynamicBlock', () => {
             inputsInline: true,
             // nextConnection: undefined, // reporter
             outputConnection: true, // reporter
-            outputShape_: MockScratchBlocks.OUTPUT_SHAPE_HEXAGONAL, // Boolean
+            outputShape_: MockSidekickBlocks.OUTPUT_SHAPE_HEXAGONAL, // Boolean
             // previousConnection: undefined, // reporter
             type: extendedOpcode
         });
@@ -191,7 +191,7 @@ describe('defineDynamicBlock', () => {
             // extensions: undefined, // no icon means no extension
             inputsInline: true,
             nextConnection: true,
-            outputShape_: MockScratchBlocks.OUTPUT_SHAPE_SQUARE,
+            outputShape_: MockSidekickBlocks.OUTPUT_SHAPE_SQUARE,
             // previousConnection: undefined, // hat
             type: extendedOpcode
         });

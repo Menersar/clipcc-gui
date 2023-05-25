@@ -8,13 +8,14 @@ import BlockType from 'scratch-vm/src/extension-support/block-type';
  * This functionality is used for extension blocks which can change its properties based on different state
  * information. For example, the `control_stop` block changes its shape based on which menu item is selected
  * and a variable block changes its text to reflect the variable name without using an editable field.
- * @param {object} ScratchBlocks - The ScratchBlocks name space.
+ * @param {object} SidekickBlocks - The SidekickBlocks name space.
  * @param {object} categoryInfo - Information about this block's extension category, including any menus and icons.
  * @param {object} staticBlockInfo - The base block information before any dynamic changes.
  * @param {string} extendedOpcode - The opcode for the block (including the extension ID).
  */
-// TODO: grow this until it can fully replace `_convertForScratchBlocks` in the VM runtime
-const defineDynamicBlock = (ScratchBlocks, categoryInfo, staticBlockInfo, extendedOpcode) => ({
+// !!!
+// TODO: grow this until it can fully replace `_convertForSidekickBlocks` in the VM runtime
+const defineDynamicBlock = (SidekickBlocks, categoryInfo, staticBlockInfo, extendedOpcode) => ({
     init: function () {
         const blockJson = {
             type: extendedOpcode,
@@ -29,7 +30,7 @@ const defineDynamicBlock = (ScratchBlocks, categoryInfo, staticBlockInfo, extend
         // blocks don't have icons and so they should not use 'scratch_extension'. Adding a scratch-blocks / Blockly
         // extension after `jsonInit` isn't fully supported (?), so we decide now whether there will be an icon.
         if (staticBlockInfo.blockIconURI || categoryInfo.blockIconURI) {
-            blockJson.extensions = ['scratch_extension'];
+            blockJson.extensions = ['sidekick_extension'];
         }
         // initialize the basics of the block, to be overridden & extended later by `domToMutation`
         this.jsonInit(blockJson);
@@ -57,24 +58,24 @@ const defineDynamicBlock = (ScratchBlocks, categoryInfo, staticBlockInfo, extend
         case BlockType.COMMAND:
         case BlockType.CONDITIONAL:
         case BlockType.LOOP:
-            this.setOutputShape(ScratchBlocks.OUTPUT_SHAPE_SQUARE);
+            this.setOutputShape(SidekickBlocks.OUTPUT_SHAPE_SQUARE);
             this.setPreviousStatement(true);
             this.setNextStatement(!blockInfo.isTerminal);
             break;
         case BlockType.REPORTER:
             this.setOutput(true);
-            this.setOutputShape(ScratchBlocks.OUTPUT_SHAPE_ROUND);
+            this.setOutputShape(SidekickBlocks.OUTPUT_SHAPE_ROUND);
             if (!blockInfo.disableMonitor) {
                 this.setCheckboxInFlyout(true);
             }
             break;
         case BlockType.BOOLEAN:
             this.setOutput(true);
-            this.setOutputShape(ScratchBlocks.OUTPUT_SHAPE_HEXAGONAL);
+            this.setOutputShape(SidekickBlocks.OUTPUT_SHAPE_HEXAGONAL);
             break;
         case BlockType.HAT:
         case BlockType.EVENT:
-            this.setOutputShape(ScratchBlocks.OUTPUT_SHAPE_SQUARE);
+            this.setOutputShape(SidekickBlocks.OUTPUT_SHAPE_SQUARE);
             this.setNextStatement(true);
             break;
         }
@@ -89,7 +90,7 @@ const defineDynamicBlock = (ScratchBlocks, categoryInfo, staticBlockInfo, extend
         const blockText = blockInfo.text;
         const args = [];
         let argCount = 0;
-        const scratchBlocksStyleText = blockText.replace(/\[(.+?)]/g, (match, argName) => {
+        const sidekickBlocksStyleText = blockText.replace(/\[(.+?)]/g, (match, argName) => {
             const arg = blockInfo.arguments[argName];
             switch (arg.type) {
             case ArgumentType.STRING:
@@ -101,7 +102,7 @@ const defineDynamicBlock = (ScratchBlocks, categoryInfo, staticBlockInfo, extend
             }
             return `%${++argCount}`;
         });
-        this.interpolate_(scratchBlocksStyleText, args);
+        this.interpolate_(sidekickBlocksStyleText, args);
     }
 });
 

@@ -75,6 +75,8 @@ describe('blocks example', () => {
         await expect(projectRequests).toEqual(['https://projects.scratch.mit.edu/96708228']);
     });
 
+    // ???
+    // !!!
     // skipping per https://github.com/LLK/scratch-gui/issues/4902 until we have better approach
     test.skip('Change categories', async () => {
         await loadUri(`${uri}`);

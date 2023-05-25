@@ -8,39 +8,39 @@ import Dots from './dots.jsx';
 import helpIcon from './icons/help.svg';
 import backIcon from './icons/back.svg';
 import bluetoothIcon from './icons/bluetooth.svg';
-import scratchLinkIcon from './icons/scratchlink.svg';
+import sidekickLinkIcon from './icons/sidekicklink.svg';
 
 import styles from './connection-modal.css';
 
 const UnavailableStep = props => (
     <Box className={styles.body}>
         <Box className={styles.activityArea}>
-            <div className={styles.scratchLinkHelp}>
-                <div className={styles.scratchLinkHelpStep}>
+            <div className={styles.sidekickLinkHelp}>
+                <div className={styles.sidekickLinkHelpStep}>
                     <div className={styles.helpStepNumber}>
                         {'1'}
                     </div>
                     <div className={styles.helpStepImage}>
                         <img
-                            className={styles.scratchLinkIcon}
-                            src={scratchLinkIcon}
+                            className={styles.sidekickLinkIcon}
+                            src={sidekickLinkIcon}
                         />
                     </div>
                     <div className={styles.helpStepText}>
                         <FormattedMessage
-                            defaultMessage="Make sure you have Scratch Link installed and running"
-                            description="Message for getting Scratch Link installed"
-                            id="gui.connection.unavailable.installscratchlink"
+                            defaultMessage="Make sure you have Sidekick Link installed and running"
+                            description="Message for getting Sidekick Link installed"
+                            id="gui.connection.unavailable.installsidekicklink"
                         />
                     </div>
                 </div>
-                <div className={styles.scratchLinkHelpStep}>
+                <div className={styles.sidekickLinkHelpStep}>
                     <div className={styles.helpStepNumber}>
                         {'2'}
                     </div>
                     <div className={styles.helpStepImage}>
                         <img
-                            className={styles.scratchLinkIcon}
+                            className={styles.sidekickLinkIcon}
                             src={bluetoothIcon}
                         />
                     </div>

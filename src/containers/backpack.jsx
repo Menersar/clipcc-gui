@@ -262,9 +262,9 @@ const getTokenAndUsername = state => {
 
 const mapStateToProps = state => Object.assign(
     {
-        dragInfo: state.scratchGui.assetDrag,
-        vm: state.scratchGui.vm,
-        blockDrag: state.scratchGui.blockDrag
+        dragInfo: state.sidekickGui.assetDrag,
+        vm: state.sidekickGui.vm,
+        blockDrag: state.sidekickGui.blockDrag
     },
     getTokenAndUsername(state)
 );

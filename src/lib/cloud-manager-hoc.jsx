@@ -139,12 +139,12 @@ const cloudManagerHOC = function (WrappedComponent) {
     };
 
     const mapStateToProps = (state, ownProps) => {
-        const loadingState = state.scratchGui.projectState.loadingState;
+        const loadingState = state.sidekickGui.projectState.loadingState;
         return {
             isShowingWithId: getIsShowingWithId(loadingState),
-            projectId: state.scratchGui.projectState.projectId,
+            projectId: state.sidekickGui.projectState.projectId,
             // if you're editing someone else's project, you can't modify cloud data
-            canModifyCloudData: (!state.scratchGui.mode.hasEverEnteredEditor || ownProps.canSave)
+            canModifyCloudData: (!state.sidekickGui.mode.hasEverEnteredEditor || ownProps.canSave)
         };
     };
 

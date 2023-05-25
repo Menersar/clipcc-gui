@@ -189,10 +189,10 @@ StageSelector.propTypes = {
 
 const mapStateToProps = (state, {asset, id}) => ({
     url: asset && asset.encodeDataURI(),
-    vm: state.scratchGui.vm,
-    receivedBlocks: state.scratchGui.hoveredTarget.receivedBlocks &&
-            state.scratchGui.hoveredTarget.sprite === id,
-    raised: state.scratchGui.blockDrag
+    vm: state.sidekickGui.vm,
+    receivedBlocks: state.sidekickGui.hoveredTarget.receivedBlocks &&
+            state.sidekickGui.hoveredTarget.sprite === id,
+    raised: state.sidekickGui.blockDrag
 });
 
 const mapDispatchToProps = dispatch => ({

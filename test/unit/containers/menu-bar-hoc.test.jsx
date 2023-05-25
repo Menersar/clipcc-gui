@@ -9,7 +9,7 @@ describe('Menu Bar HOC', () => {
 
     beforeEach(() => {
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectChanged: true
             }
         });

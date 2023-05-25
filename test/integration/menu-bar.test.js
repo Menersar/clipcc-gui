@@ -59,17 +59,19 @@ describe('Menu bar settings', () => {
 
     test('Logo should be clickable', async () => {
         await loadUri(uri);
-        await clickXpath('//img[@alt="Scratch"]');
+        await clickXpath('//img[@alt="Sidekick"]');
         const currentUrl = await driver.getCurrentUrl();
         await expect(currentUrl).toEqual('https://scratch.mit.edu/');
     });
 
     test('(GH#4064) Project name should be editable', async () => {
         await loadUri(uri);
-        const el = await findByXpath('//input[@value="Scratch Project"]');
+        const el = await findByXpath('//input[@value="Sidekick Project"]');
         await el.sendKeys(' - Personalized');
+        // ???
+        // !!!
         await clickText('Costumes'); // just to blur the input
-        await clickXpath('//input[@value="Scratch Project - Personalized"]');
+        await clickXpath('//input[@value="Sidekick Project - Personalized"]');
     });
 
     test('User is not warned before uploading project file over a fresh project', async () => {

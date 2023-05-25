@@ -12,7 +12,7 @@ describe('HashParserHOC', () => {
 
     beforeEach(() => {
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectState: {}
             }
         });

@@ -70,7 +70,7 @@ class ConnectionModal extends React.Component {
     }
     handleError () {
         // Assume errors that come in during scanning phase are the result of not
-        // having scratch-link installed.
+        // having sidekick-link installed.
         if (this.state.phase === PHASES.scanning || this.state.phase === PHASES.unavailable) {
             this.setState({
                 phase: PHASES.unavailable
@@ -135,7 +135,7 @@ ConnectionModal.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    extensionId: state.scratchGui.connectionModal.extensionId
+    extensionId: state.sidekickGui.connectionModal.extensionId
 });
 
 const mapDispatchToProps = dispatch => ({

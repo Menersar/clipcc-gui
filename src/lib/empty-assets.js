@@ -50,8 +50,8 @@ const emptySprite = (name, soundName, costumeName) => ({
         }
     ],
     currentCostumeIndex: 0,
-    scratchX: 36,
-    scratchY: 28,
+    sidekickX: 36,
+    sidekickY: 28,
     scale: 1,
     direction: 90,
     rotationStyle: 'normal',

@@ -63,10 +63,10 @@ const HashParserHOC = function (WrappedComponent) {
         setProjectId: PropTypes.func
     };
     const mapStateToProps = state => {
-        const loadingState = state.scratchGui.projectState.loadingState;
+        const loadingState = state.sidekickGui.projectState.loadingState;
         return {
             isFetchingWithoutId: getIsFetchingWithoutId(loadingState),
-            reduxProjectId: state.scratchGui.projectState.projectId
+            reduxProjectId: state.sidekickGui.projectState.projectId
         };
     };
     const mapDispatchToProps = dispatch => ({

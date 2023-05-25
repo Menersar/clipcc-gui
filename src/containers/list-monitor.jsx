@@ -196,6 +196,6 @@ ListMonitor.propTypes = {
     y: PropTypes.number
 };
 
-const mapStateToProps = state => ({vm: state.scratchGui.vm});
+const mapStateToProps = state => ({vm: state.sidekickGui.vm});
 
 export default connect(mapStateToProps)(ListMonitor);

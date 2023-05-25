@@ -45,7 +45,7 @@ GreenFlagOverlay.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    vm: state.scratchGui.vm
+    vm: state.sidekickGui.vm
 });
 
 const mapDispatchToProps = () => ({});

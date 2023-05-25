@@ -64,7 +64,7 @@ ProjectWatcher.defaultProps = {
 };
 
 const mapStateToProps = state => {
-    const loadingState = state.scratchGui.projectState.loadingState;
+    const loadingState = state.sidekickGui.projectState.loadingState;
     return {
         isShowingWithId: getIsShowingWithId(loadingState)
     };

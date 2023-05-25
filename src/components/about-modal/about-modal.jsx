@@ -5,11 +5,11 @@ import Box from '../box/box.jsx';
 import {defineMessages, injectIntl, FormattedMessage} from 'react-intl';
 import Modal from '../../containers/modal.jsx';
 import styles from './about-modal.css';
-import logo from './scratch-logo.svg';
+import logo from './sidekick-logo.svg';
 import github from './github.svg';
 
 import {appVersion, appVersionFull, compileTime, isProd} from '../../lib/app-info';
-import {isScratchDesktop} from '../../lib/isScratchDesktop';
+import {isSidekickDesktop} from '../../lib/isSidekickDesktop';
 
 const messages = defineMessages({
     aboutModalTitle: {
@@ -18,7 +18,7 @@ const messages = defineMessages({
         id: 'gui.aboutModal.aboutModalTitle'
     },
     appVersion: {
-        defaultMessage: 'Scratch Version',
+        defaultMessage: 'Sidekick Version',
         description: 'Label for showing version',
         id: 'gui.aboutModal.appVersion'
     },
@@ -69,7 +69,7 @@ const AboutModal = ({
                 {': '}
                 <span>{compileTime}</span>
             </p>
-            {isScratchDesktop() && typeof global.Scratch !== 'undefined' ? (
+            {isSidekickDesktop() && typeof global.Scratch !== 'undefined' ? (
                 ['Electron', 'Chrome', 'Node', 'Tauri'].map(component => {
                     if (global.Scratch.versions &&
                         typeof global.Scratch.versions[component.toLowerCase()] !== 'undefined'

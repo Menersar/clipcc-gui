@@ -1,5 +1,5 @@
-# scratch-gui
-#### Scratch GUI is a set of React components that comprise the interface for creating and running Scratch 3.0 projects
+# sidekick-gui
+#### Sidekick GUI is a set of React components that comprise the interface for creating and running Sidekick projects
 
 ## Installation
 This requires you to have Git and Node.js installed.

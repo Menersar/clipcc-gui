@@ -86,7 +86,7 @@ class SBFileUploader extends React.Component {
     }
     getProjectTitleFromFilename (fileInputFilename) {
         if (!fileInputFilename) return '';
-        // only parse title with valid scratch project extensions
+        // only parse title with valid sidekick project extensions
         // (.sb, .sb2, .sb3 and .sk)
         const matches = fileInputFilename.match(/^(.*)\.(sb|sk)[23]?$/);
         if (!matches) return '';
@@ -194,13 +194,13 @@ SBFileUploader.defaultProps = {
     className: ''
 };
 const mapStateToProps = state => {
-    const loadingState = state.scratchGui.projectState.loadingState;
+    const loadingState = state.sidekickGui.projectState.loadingState;
     return {
         isLoadingUpload: getIsLoadingUpload(loadingState),
         isShowingWithoutId: getIsShowingWithoutId(loadingState),
         loadingState: loadingState,
-        projectChanged: state.scratchGui.projectChanged,
-        vm: state.scratchGui.vm
+        projectChanged: state.sidekickGui.projectChanged,
+        vm: state.sidekickGui.vm
     };
 };
 

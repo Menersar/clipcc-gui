@@ -4,7 +4,7 @@ import defaultsDeep from 'lodash.defaultsdeep';
 import makeToolboxXML from '../lib/make-toolbox-xml';
 import PropTypes from 'prop-types';
 import React from 'react';
-import VMScratchBlocks from '../lib/blocks';
+import VMSidekickBlocks from '../lib/blocks';
 import VM from 'scratch-vm';
 
 import log from '../lib/log.js';
@@ -49,7 +49,7 @@ const DroppableBlocks = DropAreaHOC([
 class Blocks extends React.Component {
     constructor (props) {
         super(props);
-        this.ScratchBlocks = VMScratchBlocks(props.vm);
+        this.SidekickBlocks = VMSidekickBlocks(props.vm);
         bindAll(this, [
             'attachVM',
             'detachVM',
@@ -77,9 +77,9 @@ class Blocks extends React.Component {
             'setBlocks',
             'setLocale'
         ]);
-        this.ScratchBlocks.prompt = this.handlePromptStart;
-        this.ScratchBlocks.statusButtonCallback = this.handleConnectionModalStart;
-        this.ScratchBlocks.recordSoundCallback = this.handleOpenSoundRecorder;
+        this.SidekickBlocks.prompt = this.handlePromptStart;
+        this.SidekickBlocks.statusButtonCallback = this.handleConnectionModalStart;
+        this.SidekickBlocks.recordSoundCallback = this.handleOpenSoundRecorder;
 
         this.state = {
             prompt: null
@@ -88,16 +88,16 @@ class Blocks extends React.Component {
         this.toolboxUpdateQueue = [];
     }
     componentDidMount () {
-        this.ScratchBlocks.FieldColourSlider.activateEyedropper_ = this.props.onActivateColorPicker;
-        this.ScratchBlocks.Procedures.externalProcedureDefCallback = this.props.onActivateCustomProcedures;
-        this.ScratchBlocks.ScratchMsgs.setLocale(this.props.locale);
+        this.SidekickBlocks.FieldColourSlider.activateEyedropper_ = this.props.onActivateColorPicker;
+        this.SidekickBlocks.Procedures.externalProcedureDefCallback = this.props.onActivateCustomProcedures;
+        this.SidekickBlocks.ScratchMsgs.setLocale(this.props.locale);
 
         const workspaceConfig = defaultsDeep({},
             Blocks.defaultOptions,
             this.props.options,
             {rtl: this.props.isRtl, toolbox: this.props.toolboxXML}
         );
-        this.workspace = this.ScratchBlocks.inject(this.blocks, workspaceConfig);
+        this.workspace = this.SidekickBlocks.inject(this.blocks, workspaceConfig);
 
         // Register buttons under new callback keys for creating variables,
         // lists, and procedures from extensions.
@@ -105,9 +105,9 @@ class Blocks extends React.Component {
         const toolboxWorkspace = this.workspace.getFlyout().getWorkspace();
 
         const varListButtonCallback = type =>
-            (() => this.ScratchBlocks.Variables.createVariable(this.workspace, null, type));
+            (() => this.SidekickBlocks.Variables.createVariable(this.workspace, null, type));
         const procButtonCallback = () => {
-            this.ScratchBlocks.Procedures.createProcedureDefCallback_(this.workspace);
+            this.SidekickBlocks.Procedures.createProcedureDefCallback_(this.workspace);
         };
 
         toolboxWorkspace.registerButtonCallback('MAKE_A_VARIABLE', varListButtonCallback(''));
@@ -155,7 +155,7 @@ class Blocks extends React.Component {
     componentDidUpdate (prevProps) {
         // If any modals are open, call hideChaff to close z-indexed field editors
         if (this.props.anyModalVisible && !prevProps.anyModalVisible) {
-            this.ScratchBlocks.hideChaff();
+            this.SidekickBlocks.hideChaff();
         }
 
         // Only rerender the toolbox when the blocks are visible and the xml is
@@ -211,7 +211,7 @@ class Blocks extends React.Component {
         }, 0);
     }
     setLocale () {
-        this.ScratchBlocks.ScratchMsgs.setLocale(this.props.locale);
+        this.SidekickBlocks.ScratchMsgs.setLocale(this.props.locale);
         this.props.vm.setLocale(this.props.locale, this.props.messages)
             .then(() => {
                 this.workspace.getFlyout().setRecyclingEnabled(false);
@@ -382,16 +382,16 @@ class Blocks extends React.Component {
         // Remove and reattach the workspace listener (but allow flyout events)
         this.workspace.removeChangeListener(this.props.vm.blockListener);
         try {
-            const dom = this.ScratchBlocks.Xml.textToDom(data.xml);
-            this.ScratchBlocks.Xml.clearWorkspaceAndLoadFromXml(dom, this.workspace);
+            const dom = this.SidekickBlocks.Xml.textToDom(data.xml);
+            this.SidekickBlocks.Xml.clearWorkspaceAndLoadFromXml(dom, this.workspace);
             // TODO: Workspace Cache
             /* if (this.workspace.hasCache(target.id) && !target.deprecatedCache) {
                 this.workspace.switchToCache(target.id);
             }
             else {
-                const dom = this.ScratchBlocks.Xml.textToDom(data.xml);
-                // this.ScratchBlocks.Xml.clearWorkspaceAndLoadFromXml(dom, this.workspace);
-                this.ScratchBlocks.Xml.createWorkspaceCacheAndLoadFromXml(dom, this.workspace, target.id);
+                const dom = this.SidekickBlocks.Xml.textToDom(data.xml);
+                // this.SidekickBlocks.Xml.clearWorkspaceAndLoadFromXml(dom, this.workspace);
+                this.SidekickBlocks.Xml.createWorkspaceCacheAndLoadFromXml(dom, this.workspace, target.id);
                 this.props.vm.editingTarget.deprecatedCache = false;
                 // console.log(this.props.vm.editingTarget)
             } */
@@ -457,24 +457,24 @@ class Blocks extends React.Component {
                     // otherwise it's a non-block entry such as '---'
                 });
 
-                this.ScratchBlocks.defineBlocksWithJsonArray(staticBlocksJson);
+                this.SidekickBlocks.defineBlocksWithJsonArray(staticBlocksJson);
                 dynamicBlocksInfo.forEach(blockInfo => {
                     // This is creating the block factory / constructor -- NOT a specific instance of the block.
                     // The factory should only know static info about the block: the category info and the opcode.
                     // Anything else will be picked up from the XML attached to the block instance.
                     const extendedOpcode = `${categoryInfo.id}_${blockInfo.info.opcode}`;
                     const blockDefinition =
-                        defineDynamicBlock(this.ScratchBlocks, categoryInfo, blockInfo, extendedOpcode);
-                    this.ScratchBlocks.Blocks[extendedOpcode] = blockDefinition;
+                        defineDynamicBlock(this.SidekickBlocks, categoryInfo, blockInfo, extendedOpcode);
+                    this.SidekickBlocks.Blocks[extendedOpcode] = blockDefinition;
                 });
             }
         };
 
-        // scratch-blocks implements a menu or custom field as a special kind of block ("shadow" block)
+        // sidekick-blocks implements a menu or custom field as a special kind of block ("shadow" block)
         // these actually define blocks and MUST run regardless of the UI state
         defineBlocks(
             Object.getOwnPropertyNames(categoryInfo.customFieldTypes)
-                .map(fieldTypeName => categoryInfo.customFieldTypes[fieldTypeName].scratchBlocksDefinition));
+                .map(fieldTypeName => categoryInfo.customFieldTypes[fieldTypeName].sidekickBlocksDefinition));
         defineBlocks(categoryInfo.menus);
         defineBlocks(categoryInfo.blocks);
 
@@ -504,21 +504,21 @@ class Blocks extends React.Component {
     handlePromptStart (message, defaultValue, callback, optTitle, optVarType) {
         const p = {prompt: {callback, message, defaultValue}};
         p.prompt.title = optTitle ? optTitle :
-            this.ScratchBlocks.Msg.VARIABLE_MODAL_TITLE;
+            this.SidekickBlocks.Msg.VARIABLE_MODAL_TITLE;
         p.prompt.varType = typeof optVarType === 'string' ?
-            optVarType : this.ScratchBlocks.SCALAR_VARIABLE_TYPE;
+            optVarType : this.SidekickBlocks.SCALAR_VARIABLE_TYPE;
         p.prompt.showVariableOptions = // This flag means that we should show variable/list options about scope
-            optVarType !== this.ScratchBlocks.BROADCAST_MESSAGE_VARIABLE_TYPE &&
-            p.prompt.title !== this.ScratchBlocks.Msg.RENAME_VARIABLE_MODAL_TITLE &&
-            p.prompt.title !== this.ScratchBlocks.Msg.RENAME_LIST_MODAL_TITLE;
-        p.prompt.showCloudOption = (optVarType === this.ScratchBlocks.SCALAR_VARIABLE_TYPE) && this.props.canUseCloud;
+            optVarType !== this.SidekickBlocks.BROADCAST_MESSAGE_VARIABLE_TYPE &&
+            p.prompt.title !== this.SidekickBlocks.Msg.RENAME_VARIABLE_MODAL_TITLE &&
+            p.prompt.title !== this.SidekickBlocks.Msg.RENAME_LIST_MODAL_TITLE;
+        p.prompt.showCloudOption = (optVarType === this.SidekickBlocks.SCALAR_VARIABLE_TYPE) && this.props.canUseCloud;
         this.setState(p);
     }
     handleConnectionModalStart (extensionId) {
         this.props.onOpenConnectionModal(extensionId);
     }
     handleStatusButtonUpdate () {
-        this.ScratchBlocks.refreshStatusButtons(this.workspace);
+        this.SidekickBlocks.refreshStatusButtons(this.workspace);
     }
     handleOpenSoundRecorder () {
         this.props.onOpenSoundRecorder();
@@ -527,7 +527,7 @@ class Blocks extends React.Component {
     /*
      * Pass along information about proposed name and variable options (scope and isCloud)
      * and additional potentially conflicting variable names from the VM
-     * to the variable validation prompt callback used in scratch-blocks.
+     * to the variable validation prompt callback used in sidekick-blocks.
      */
     handlePromptCallback (input, variableOptions) {
         this.state.prompt.callback(
@@ -592,7 +592,7 @@ class Blocks extends React.Component {
                     <Prompt
                         defaultValue={this.state.prompt.defaultValue}
                         isStage={vm.runtime.getEditingTarget().isStage}
-                        showListMessage={this.state.prompt.varType === this.ScratchBlocks.LIST_VARIABLE_TYPE}
+                        showListMessage={this.state.prompt.varType === this.SidekickBlocks.LIST_VARIABLE_TYPE}
                         label={this.state.prompt.message}
                         showCloudOption={this.state.prompt.showCloudOption}
                         showVariableOptions={this.state.prompt.showVariableOptions}
@@ -708,17 +708,17 @@ Blocks.defaultProps = {
 
 const mapStateToProps = state => ({
     anyModalVisible: (
-        Object.keys(state.scratchGui.modals).some(key => state.scratchGui.modals[key]) ||
-        state.scratchGui.mode.isFullScreen
+        Object.keys(state.sidekickGui.modals).some(key => state.sidekickGui.modals[key]) ||
+        state.sidekickGui.mode.isFullScreen
     ),
-    extensionLibraryVisible: state.scratchGui.modals.extensionLibrary,
-    hideNonOriginalBlocks: state.scratchGui.settings.hideNonOriginalBlocks,
+    extensionLibraryVisible: state.sidekickGui.modals.extensionLibrary,
+    hideNonOriginalBlocks: state.sidekickGui.settings.hideNonOriginalBlocks,
     isRtl: state.locales.isRtl,
     locale: state.locales.locale,
     messages: state.locales.messages,
-    toolboxXML: state.scratchGui.toolbox.toolboxXML,
-    customProceduresVisible: state.scratchGui.customProcedures.active,
-    workspaceMetrics: state.scratchGui.workspaceMetrics
+    toolboxXML: state.sidekickGui.toolbox.toolboxXML,
+    customProceduresVisible: state.sidekickGui.customProcedures.active,
+    workspaceMetrics: state.sidekickGui.workspaceMetrics
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,15 +1,15 @@
-import lazyScratchBlock from './lazy-blocks';
+import lazySidekickBlock from './lazy-blocks';
 
 const categorySeparator = '<sep gap="36"/>';
 
 const blockSeparator = '<sep gap="36"/>'; // At default scale, about 28px
 
-const ScratchBlocks = {
+const SidekickBlocks = {
     ScratchMsgs: {
         translate: (messageId, defaultMessage) => {
-            if (lazyScratchBlock.loaded()) {
-                const ScratchBlocks = lazyScratchBlock.get();
-                return ScratchBlocks.ScratchMsgs.translate(messageId, defaultMessage);
+            if (lazySidekickBlock.loaded()) {
+                const SidekickBlocks = lazySidekickBlock.get();
+                return SidekickBlocks.ScratchMsgs.translate(messageId, defaultMessage);
             }
             return defaultMessage;
         }
@@ -18,12 +18,12 @@ const ScratchBlocks = {
 
 /* eslint-disable no-unused-vars */
 const motion = function (isInitialSetup, isStage, targetId) {
-    const obsoletedBlocks = ScratchBlocks.ScratchMsgs.translate(
+    const obsoletedBlocks = SidekickBlocks.ScratchMsgs.translate(
         'OBSOLETED_BLOCKS',
         'Obsoleted Blocks'
     );
 
-    const stageSelected = ScratchBlocks.ScratchMsgs.translate(
+    const stageSelected = SidekickBlocks.ScratchMsgs.translate(
         'MOTION_STAGE_SELECTED',
         'Stage selected: no motion blocks'
     );
@@ -188,9 +188,9 @@ const xmlEscape = function (unsafe) {
 };
 
 const looks = function (isInitialSetup, isStage, targetId, costumeName, backdropName) {
-    const hello = ScratchBlocks.ScratchMsgs.translate('LOOKS_HELLO', 'Hello!');
-    const hmm = ScratchBlocks.ScratchMsgs.translate('LOOKS_HMM', 'Hmm...');
-    const obsoletedBlocks = ScratchBlocks.ScratchMsgs.translate(
+    const hello = SidekickBlocks.ScratchMsgs.translate('LOOKS_HELLO', 'Hello!');
+    const hmm = SidekickBlocks.ScratchMsgs.translate('LOOKS_HMM', 'Hmm...');
+    const obsoletedBlocks = SidekickBlocks.ScratchMsgs.translate(
         'OBSOLETED_BLOCKS',
         'Obsoleted Blocks'
     );
@@ -433,7 +433,7 @@ const events = function (isInitialSetup, isStage) {
 };
 
 const control = function (isInitialSetup, isStage, targetId, hideNonOriginalBlocks) {
-    const obsoletedBlocks = ScratchBlocks.ScratchMsgs.translate(
+    const obsoletedBlocks = SidekickBlocks.ScratchMsgs.translate(
         'OBSOLETED_BLOCKS',
         'Obsoleted Blocks'
     );
@@ -501,11 +501,11 @@ const control = function (isInitialSetup, isStage, targetId, hideNonOriginalBloc
 };
 
 const sensing = function (isInitialSetup, isStage, targetId, hideNonOriginalBlocks) {
-    const obsoletedBlocks = ScratchBlocks.ScratchMsgs.translate(
+    const obsoletedBlocks = SidekickBlocks.ScratchMsgs.translate(
         'OBSOLETED_BLOCKS',
         'Obsoleted Blocks'
     );
-    const name = ScratchBlocks.ScratchMsgs.translate('SENSING_ASK_TEXT', 'What\'s your name?');
+    const name = SidekickBlocks.ScratchMsgs.translate('SENSING_ASK_TEXT', 'What\'s your name?');
     return `
     <category name="%{BKY_CATEGORY_SENSING}" id="sensing" colour="#4CBFE6" secondaryColour="#2E8EB8">
         ${isStage ? '' : `
@@ -646,7 +646,7 @@ const sensing = function (isInitialSetup, isStage, targetId, hideNonOriginalBloc
         ${blockSeparator}
         ${hideNonOriginalBlocks ? '' : `
         <block type="sensing_operatingsystem"/>
-        <block type="sensing_scratch_version"/>
+        <block type="sensing_sidekick_version"/>
         <block type="sensing_isturbomode"/>
         <block type="sensing_turnonturbomode"/>
         <block type="sensing_turnoffturbomode"/>
@@ -661,9 +661,9 @@ const sensing = function (isInitialSetup, isStage, targetId, hideNonOriginalBloc
 };
 
 const operators = function (isInitialSetup, _isStage, _targetId, hideNonOriginalBlocks) {
-    const apple = ScratchBlocks.ScratchMsgs.translate('OPERATORS_JOIN_APPLE', 'apple');
-    const banana = ScratchBlocks.ScratchMsgs.translate('OPERATORS_JOIN_BANANA', 'banana');
-    const letter = ScratchBlocks.ScratchMsgs.translate('OPERATORS_LETTEROF_APPLE', 'a');
+    const apple = SidekickBlocks.ScratchMsgs.translate('OPERATORS_JOIN_APPLE', 'apple');
+    const banana = SidekickBlocks.ScratchMsgs.translate('OPERATORS_JOIN_BANANA', 'banana');
+    const letter = SidekickBlocks.ScratchMsgs.translate('OPERATORS_LETTEROF_APPLE', 'a');
     return `
     <category name="%{BKY_CATEGORY_OPERATORS}" id="operators" colour="#40BF4A" secondaryColour="#389438">
         <block type="operator_add">
@@ -1037,14 +1037,14 @@ const xmlClose = '</xml>';
  * when isInitialSetup is true.
  * @param {?string} targetId - The current editing target
  * @param {?Array.<object>} categoriesXML - optional array of `{id,xml}` for categories. This can include both core
- * and other extensions: core extensions will be placed in the normal Scratch order; others will go at the bottom.
+ * and other extensions: core extensions will be placed in the normal Sidekick order; others will go at the bottom.
  * @property {string} id - the extension / category ID.
  * @property {string} xml - the `<category>...</category>` XML for this extension / category.
  * @param {?string} costumeName - The name of the default selected costume dropdown.
  * @param {?string} backdropName - The name of the default selected backdrop dropdown.
  * @param {?string} soundName -  The name of the default selected sound dropdown.
  * @param {?string} hideNonOriginalBlocks - hide non-original blocks.
- * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
+ * @returns {string} - a SidekickBlocks-style XML document for the contents of the toolbox.
  */
 const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categoriesXML = [],
     costumeName = '', backdropName = '', soundName = '', hideNonOriginalBlocks = false) {

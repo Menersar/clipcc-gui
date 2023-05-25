@@ -45,7 +45,7 @@ body[theme='dark'] {
     height: 100%;
 
     /*
-        Stop scrollbar popping in and out from scratch-blocks border issue
+        Stop scrollbar popping in and out from sidekick-blocks border issue
     */
     overflow-y: hidden;
 
@@ -275,7 +275,7 @@ body[theme='dark'] {
     background: $motion-primary;
 
     border: 1px solid $motion-primary;
-    box-sizing: content-box; /* To match scratch-block vertical toolbox borders */
+    box-sizing: content-box; /* To match sidekick-block vertical toolbox borders */
 }
 
 $fade-out-distance: 15px;

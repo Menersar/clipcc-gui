@@ -15,7 +15,7 @@ describe('ProjectFetcherHOC', () => {
 
     beforeEach(() => {
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectState: {}
             }
         });

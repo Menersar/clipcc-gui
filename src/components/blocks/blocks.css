@@ -88,7 +88,7 @@
 /*
     Shrink category font to fit "My Blocks" for now.
     Probably will need different solutions for language support later, so
-    make the change here instead of in scratch-blocks.
+    make the change here instead of in sidekick-blocks.
 */
 .blocks :global(.scratchCategoryMenuItemLabel) {
     font-size: 1.1em;

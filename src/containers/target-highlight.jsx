@@ -13,10 +13,10 @@ class TargetHighlight extends React.Component {
         ]);
     }
 
-    // Transform scratch coordinates into page coordinates
+    // Transform sidekick coordinates into page coordinates
     getPageCoords (x, y) {
         const {stageWidth, stageHeight, vm} = this.props;
-        // The renderers "nativeSize" is the [width, height] of the stage in scratch-units
+        // The renderers "nativeSize" is the [width, height] of the stage in sidekick-units
         const nativeSize = vm.renderer.getNativeSize();
         return [
             ((stageWidth / nativeSize[0]) * x) + (stageWidth / 2),
@@ -69,9 +69,9 @@ TargetHighlight.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    highlightedTargetTime: state.scratchGui.targets.highlightedTargetTime,
-    highlightedTargetId: state.scratchGui.targets.highlightedTargetId,
-    vm: state.scratchGui.vm
+    highlightedTargetTime: state.sidekickGui.targets.highlightedTargetTime,
+    highlightedTargetId: state.sidekickGui.targets.highlightedTargetId,
+    vm: state.sidekickGui.vm
 });
 
 const mapDispatchToProps = () => ({});

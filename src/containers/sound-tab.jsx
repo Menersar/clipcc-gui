@@ -305,12 +305,12 @@ SoundTab.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    editingTarget: state.scratchGui.targets.editingTarget,
+    editingTarget: state.sidekickGui.targets.editingTarget,
     isRtl: state.locales.isRtl,
-    sprites: state.scratchGui.targets.sprites,
-    stage: state.scratchGui.targets.stage,
-    soundLibraryVisible: state.scratchGui.modals.soundLibrary,
-    soundRecorderVisible: state.scratchGui.modals.soundRecorder
+    sprites: state.sidekickGui.targets.sprites,
+    stage: state.sidekickGui.targets.stage,
+    soundLibraryVisible: state.sidekickGui.modals.soundLibrary,
+    soundRecorderVisible: state.sidekickGui.modals.soundRecorder
 });
 
 const mapDispatchToProps = dispatch => ({

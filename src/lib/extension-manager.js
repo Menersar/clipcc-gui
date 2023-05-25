@@ -9,7 +9,7 @@ import mime from 'mime-types';
 import log from '../lib/log';
 import vm from 'vm';
 
-import ScratchExtension from 'scratch-extension';
+import SidekickExtension from 'scratch-extension';
 
 import musicIconURL from './libraries/extensions/music/music.png';
 import musicInsetIconURL from './libraries/extensions/music/music-small.svg';
@@ -172,7 +172,7 @@ const deprecatedExtensions = [
 
 const loadBuiltinExtension = dispatch => {
     for (const ext of builtinExtensions) {
-        ScratchExtension.extensionManager.addInstance(ext.extensionId, {
+        SidekickExtension.extensionManager.addInstance(ext.extensionId, {
             id: ext.extensionId,
             icon: ext.iconURL,
             inset_icon: ext.insetIconURL,
@@ -180,12 +180,12 @@ const loadBuiltinExtension = dispatch => {
             requirement: ext.requirement,
             api: 0,
             version: '1.0.0'
-        }, new ScratchExtension.Extension());
+        }, new SidekickExtension.Extension());
         dispatch(initExtension(ext));
     }
     // Deprecated extensions will still need to be loaded, but will not be displayed
     for (const ext of deprecatedExtensions) {
-        ScratchExtension.extensionManager.addInstance(ext.extensionId, {
+        SidekickExtension.extensionManager.addInstance(ext.extensionId, {
             id: ext.extensionId,
             icon: ext.iconURL,
             inset_icon: ext.insetIconURL,
@@ -193,7 +193,7 @@ const loadBuiltinExtension = dispatch => {
             requirement: ext.requirement,
             api: 0,
             version: '1.0.0'
-        }, new ScratchExtension.Extension());
+        }, new SidekickExtension.Extension());
     }
 };
 
@@ -205,7 +205,7 @@ const initExtensionAPI = (gui, vm, blocks) => {
         document: document,
         window: window
     };
-    ScratchExtension.api.registExtensionAPI(apiInstance);
+    SidekickExtension.api.registExtensionAPI(apiInstance);
 };
 
 const loadSettings = (dispatch, id, settings) => {
@@ -233,13 +233,13 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
         if ('info.json' in zipData.files) {
             const content = await zipData.files['info.json'].async('text');
             info = JSON.parse(content);
-            if (ScratchExtension.extensionManager.exist(info.id)) {
+            if (SidekickExtension.extensionManager.exist(info.id)) {
                 log.warn('reloading extension...');
                 try {
-                    ScratchExtension.extensionManager.removeInstance(info.id);
-                    ScratchExtension.extensionManager.unloadExtensions(
+                    SidekickExtension.extensionManager.removeInstance(info.id);
+                    SidekickExtension.extensionManager.unloadExtensions(
                         [info.id],
-                        extension => ScratchExtension.api.getVmInstance().extensionManager.unloadExtensionURL(info.id)
+                        extension => SidekickExtension.api.getVmInstance().extensionManager.unloadExtensionURL(info.id)
                     );
                     dispatch(disableExtension(info.id));
                     isReload = true;
@@ -311,7 +311,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
         };
 
         if (settings) loadSettings(dispatch, info.id, settings);
-        ScratchExtension.extensionManager.addInstance(info.id, info, instance);
+        SidekickExtension.extensionManager.addInstance(info.id, info, instance);
         dispatch(addLocales(locale));
         dispatch(updateLocale());
         dispatch(initExtension(extensionInfo));
@@ -322,7 +322,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
         const Extension = vm.runInThisContext(file);
         const instance = new Extension();
         info = instance.getInfo();
-        const apiInstance = new ScratchExtension.CompatibleExtension(instance);
+        const apiInstance = new SidekickExtension.CompatibleExtension(instance);
         const extensionInfo = {
             extensionId: info.id,
             iconURL: info.blockIconURL,
@@ -336,7 +336,7 @@ const loadExtensionFromFile = async (dispatch, file, type) => {
             fileContent: file
         };
 
-        ScratchExtension.extensionManager.addInstance(info.id, {
+        SidekickExtension.extensionManager.addInstance(info.id, {
             id: info.id,
             icon: info.blockIconURL,
             inset_icon: info.blockIconURL,

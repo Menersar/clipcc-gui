@@ -11,7 +11,7 @@ class Storage extends ScratchStorage {
         super();
         this.cacheDefaultProject();
     }
-    addOfficialScratchWebStores () {
+    addOfficialSidekickWebStores () {
         this.addWebStore(
             [this.AssetType.Project],
             this.getProjectGetConfig.bind(this),
@@ -27,6 +27,7 @@ class Storage extends ScratchStorage {
             this.getAssetCreateConfig.bind(this),
             this.getAssetCreateConfig.bind(this)
         );
+        // !!!
         this.addWebStore(
             [this.AssetType.Sound],
             asset => `static/extension-assets/scratch3_music/${asset.assetId}.${asset.dataFormat}`

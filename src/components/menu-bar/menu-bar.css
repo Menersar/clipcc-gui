@@ -44,12 +44,12 @@
     /* flex-grow: 1; */
 }
 
-.scratch-logo {
+.sidekick-logo {
     height:  1.6rem;
     vertical-align: middle;
 }
 
-.scratch-logo.clickable {
+.sidekick-logo.clickable {
     cursor: pointer;
 }
 

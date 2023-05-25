@@ -16,7 +16,7 @@ describe('SaveStatus container', () => {
 
     test('if there are inline messages, they are shown instead of save now', () => {
         const store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectChanged: true,
                 alerts: {
                     alertsList: [
@@ -36,7 +36,7 @@ describe('SaveStatus container', () => {
 
     test('save now is shown if there are project changes and no inline messages', () => {
         const store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectChanged: true,
                 alerts: {
                     alertsList: []
@@ -58,7 +58,7 @@ describe('SaveStatus container', () => {
 
     test('neither is shown if there are no project changes or inline messages', () => {
         const store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectChanged: false,
                 alerts: {
                     alertsList: []

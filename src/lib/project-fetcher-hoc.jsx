@@ -139,12 +139,12 @@ const ProjectFetcherHOC = function (WrappedComponent) {
     };
 
     const mapStateToProps = state => ({
-        isCreatingNew: getIsCreatingNew(state.scratchGui.projectState.loadingState),
-        isFetchingWithId: getIsFetchingWithId(state.scratchGui.projectState.loadingState),
-        isLoadingProject: getIsLoading(state.scratchGui.projectState.loadingState),
-        isShowingProject: getIsShowingProject(state.scratchGui.projectState.loadingState),
-        loadingState: state.scratchGui.projectState.loadingState,
-        reduxProjectId: state.scratchGui.projectState.projectId
+        isCreatingNew: getIsCreatingNew(state.sidekickGui.projectState.loadingState),
+        isFetchingWithId: getIsFetchingWithId(state.sidekickGui.projectState.loadingState),
+        isLoadingProject: getIsLoading(state.sidekickGui.projectState.loadingState),
+        isShowingProject: getIsShowingProject(state.sidekickGui.projectState.loadingState),
+        loadingState: state.sidekickGui.projectState.loadingState,
+        reduxProjectId: state.sidekickGui.projectState.projectId
     });
     const mapDispatchToProps = dispatch => ({
         onActivateTab: tab => dispatch(activateTab(tab)),

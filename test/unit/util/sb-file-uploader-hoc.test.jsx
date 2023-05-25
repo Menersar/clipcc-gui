@@ -49,7 +49,7 @@ describe('SBFileUploaderHOC', () => {
     beforeEach(() => {
         vm = new VM();
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectState: {
                     loadingState: LoadingState.SHOWING_WITHOUT_ID
                 },

@@ -15,10 +15,10 @@ describe('projectSaverHOC', () => {
 
     beforeEach(() => {
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectChanged: false,
                 projectState: {},
-                projectTitle: 'Scratch Project',
+                projectTitle: 'Sidekick Project',
                 timeout: {
                     autoSaveTimeoutId: null
                 }

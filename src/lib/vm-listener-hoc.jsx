@@ -182,14 +182,14 @@ const vmListenerHOC = function (WrappedComponent) {
         onGreenFlag: () => ({})
     };
     const mapStateToProps = state => ({
-        projectChanged: state.scratchGui.projectChanged,
+        projectChanged: state.sidekickGui.projectChanged,
         // Do not emit target or project updates in fullscreen or player only mode
         // or when recording sounds (it leads to garbled recordings on low-power machines)
-        shouldUpdateTargets: !state.scratchGui.mode.isFullScreen && !state.scratchGui.mode.isPlayerOnly &&
-            !state.scratchGui.modals.soundRecorder,
+        shouldUpdateTargets: !state.sidekickGui.mode.isFullScreen && !state.sidekickGui.mode.isPlayerOnly &&
+            !state.sidekickGui.modals.soundRecorder,
         // Do not update the projectChanged state in fullscreen or player only mode
-        shouldUpdateProjectChanged: !state.scratchGui.mode.isFullScreen && !state.scratchGui.mode.isPlayerOnly,
-        vm: state.scratchGui.vm,
+        shouldUpdateProjectChanged: !state.sidekickGui.mode.isFullScreen && !state.sidekickGui.mode.isPlayerOnly,
+        vm: state.sidekickGui.vm,
         username: state.session && state.session.session && state.session.session.user ?
             state.session.session.user.username : ''
     });

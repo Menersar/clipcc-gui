@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 
 describe('MonitorListComponent', () => {
-    const store = configureStore()({scratchGui: {
+    const store = configureStore()({sidekickGui: {
         monitorLayout: {
             monitors: {},
             savedMonitorPositions: {}

@@ -13,7 +13,7 @@ describe('VMListenerHOC', () => {
     beforeEach(() => {
         vm = new VM();
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 mode: {},
                 modals: {},
                 vm: vm
@@ -73,7 +73,7 @@ describe('VMListenerHOC', () => {
         const Component = () => (<div />);
         const WrappedComponent = vmListenerHOC(Component);
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 mode: {},
                 modals: {soundRecorder: true},
                 vm: vm
@@ -96,7 +96,7 @@ describe('VMListenerHOC', () => {
         const Component = () => (<div />);
         const WrappedComponent = vmListenerHOC(Component);
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 mode: {},
                 modals: {soundRecorder: true},
                 vm: vm
@@ -117,7 +117,7 @@ describe('VMListenerHOC', () => {
         const Component = () => (<div />);
         const WrappedComponent = vmListenerHOC(Component);
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 mode: {isFullScreen: true},
                 modals: {soundRecorder: true},
                 vm: vm
@@ -148,7 +148,7 @@ describe('VMListenerHOC', () => {
         vm.postIOData = jest.fn();
 
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 mode: {isFullScreen: true},
                 modals: {soundRecorder: true},
                 vm: vm

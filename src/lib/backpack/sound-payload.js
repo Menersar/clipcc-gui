@@ -20,6 +20,7 @@ const soundPayload = sound => {
         break;
     case 'mp3':
         payload.mime = 'audio/mp3';
+        // !!!
         // TODO scratch-storage should be fixed so that encodeDataURI does not
         // always prepend the wave format header; Once that is fixed, the following
         // line will have to change.

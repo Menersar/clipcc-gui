@@ -84,11 +84,11 @@ class SB3Downloader extends React.Component {
                     types: [
                         {
                             description: 'Scratch 3 File',
-                            accept: {'application/x.scratch.sb3': ['.sb3']}
+                            accept: {'application/x.sidekick.sb3': ['.sb3']}
                         },
                         {
-                            description: 'Scratch File',
-                            accept: {'application/x.scratch.sk': ['.sk']}
+                            description: 'Sidekick File',
+                            accept: {'application/x.sidekick.sk': ['.sk']}
                         }
                     ],
                     suggestedName: fileName,
@@ -163,12 +163,12 @@ SB3Downloader.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    saveProjectSk: state.scratchGui.vm.saveProjectSk.bind(state.scratchGui.vm),
-    fileHandle: state.scratchGui.projectState.fileHandle,
-    saveProjectSb3: state.scratchGui.vm.saveProjectSb3.bind(state.scratchGui.vm),
-    projectFilename: getProjectFilename(state.scratchGui.projectTitle, projectTitleInitialState),
-    extension: state.scratchGui.extension.extension,
-    settings: state.scratchGui.settings
+    saveProjectSk: state.sidekickGui.vm.saveProjectSk.bind(state.sidekickGui.vm),
+    fileHandle: state.sidekickGui.projectState.fileHandle,
+    saveProjectSb3: state.sidekickGui.vm.saveProjectSb3.bind(state.sidekickGui.vm),
+    projectFilename: getProjectFilename(state.sidekickGui.projectTitle, projectTitleInitialState),
+    extension: state.sidekickGui.extension.extension,
+    settings: state.sidekickGui.settings
 });
 
 const mapDispatchToProps = dispatch => ({

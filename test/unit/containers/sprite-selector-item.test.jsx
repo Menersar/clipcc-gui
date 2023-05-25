@@ -36,7 +36,7 @@ describe('SpriteSelectorItem Container', () => {
     };
 
     beforeEach(() => {
-        store = mockStore({scratchGui: {
+        store = mockStore({sidekickGui: {
             hoveredTarget: {receivedBlocks: false, sprite: null},
             assetDrag: {dragging: false}
         }});

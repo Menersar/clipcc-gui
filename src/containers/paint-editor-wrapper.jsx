@@ -71,12 +71,12 @@ PaintEditorWrapper.propTypes = {
 };
 
 const mapStateToProps = (state, {selectedCostumeIndex}) => {
-    const targetId = state.scratchGui.vm.editingTarget.id;
-    const sprite = state.scratchGui.vm.editingTarget.sprite;
+    const targetId = state.sidekickGui.vm.editingTarget.id;
+    const sprite = state.sidekickGui.vm.editingTarget.sprite;
     // Make sure the costume index doesn't go out of range.
     const index = selectedCostumeIndex < sprite.costumes.length ?
         selectedCostumeIndex : sprite.costumes.length - 1;
-    const costume = state.scratchGui.vm.editingTarget.sprite.costumes[index];
+    const costume = state.sidekickGui.vm.editingTarget.sprite.costumes[index];
     return {
         name: costume && costume.name,
         rotationCenterX: costume && costume.rotationCenterX,
@@ -85,7 +85,7 @@ const mapStateToProps = (state, {selectedCostumeIndex}) => {
         imageId: targetId && `${targetId}${costume.skinId}`,
         rtl: state.locales.isRtl,
         selectedCostumeIndex: index,
-        vm: state.scratchGui.vm,
+        vm: state.sidekickGui.vm,
         zoomLevelId: targetId
     };
 };

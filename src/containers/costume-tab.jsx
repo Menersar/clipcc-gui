@@ -358,11 +358,11 @@ CostumeTab.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    editingTarget: state.scratchGui.targets.editingTarget,
+    editingTarget: state.sidekickGui.targets.editingTarget,
     isRtl: state.locales.isRtl,
-    sprites: state.scratchGui.targets.sprites,
-    stage: state.scratchGui.targets.stage,
-    dragging: state.scratchGui.assetDrag.dragging
+    sprites: state.sidekickGui.targets.sprites,
+    stage: state.sidekickGui.targets.stage,
+    dragging: state.sidekickGui.assetDrag.dragging
 });
 
 const mapDispatchToProps = dispatch => ({

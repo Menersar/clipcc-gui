@@ -105,7 +105,7 @@ const DropAreaHOC = function (dragTypes) {
         };
 
         const mapStateToProps = state => ({
-            dragInfo: state.scratchGui.assetDrag
+            dragInfo: state.sidekickGui.assetDrag
         });
 
         const mapDispatchToProps = () => ({});

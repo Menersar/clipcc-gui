@@ -121,24 +121,24 @@ SettingsModal.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    vm: state.scratchGui.vm,
-    extensionSettings: state.scratchGui.extensionSettings,
-    settings: state.scratchGui.settings,
-    layoutStyle: state.scratchGui.settings.layoutStyle,
-    darkMode: state.scratchGui.settings.darkMode,
-    blur: state.scratchGui.settings.blur,
-    framerate: state.scratchGui.settings.framerate,
-    compiler: state.scratchGui.settings.compiler,
-    hqpen: state.scratchGui.settings.hqpen,
-    seamless: state.scratchGui.settings.seamless,
-    autosave: state.scratchGui.settings.autosave,
-    autosaveInterval: state.scratchGui.settings.autosaveInterval,
-    compatibility: state.scratchGui.settings.compatibility,
-    compression: state.scratchGui.settings.compression,
-    hideNonOriginalBlocks: state.scratchGui.settings.hideNonOriginalBlocks,
-    saveSettings: state.scratchGui.settings.saveSettings,
-    saveExtension: state.scratchGui.settings.saveExtension,
-    saveOptionalExtension: state.scratchGui.settings.saveOptionalExtension
+    vm: state.sidekickGui.vm,
+    extensionSettings: state.sidekickGui.extensionSettings,
+    settings: state.sidekickGui.settings,
+    layoutStyle: state.sidekickGui.settings.layoutStyle,
+    darkMode: state.sidekickGui.settings.darkMode,
+    blur: state.sidekickGui.settings.blur,
+    framerate: state.sidekickGui.settings.framerate,
+    compiler: state.sidekickGui.settings.compiler,
+    hqpen: state.sidekickGui.settings.hqpen,
+    seamless: state.sidekickGui.settings.seamless,
+    autosave: state.sidekickGui.settings.autosave,
+    autosaveInterval: state.sidekickGui.settings.autosaveInterval,
+    compatibility: state.sidekickGui.settings.compatibility,
+    compression: state.sidekickGui.settings.compression,
+    hideNonOriginalBlocks: state.sidekickGui.settings.hideNonOriginalBlocks,
+    saveSettings: state.sidekickGui.settings.saveSettings,
+    saveExtension: state.sidekickGui.settings.saveExtension,
+    saveOptionalExtension: state.sidekickGui.settings.saveOptionalExtension
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -50,8 +50,8 @@ TurboMode.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    vm: state.scratchGui.vm,
-    turboMode: state.scratchGui.vmStatus.turbo
+    vm: state.sidekickGui.vm,
+    turboMode: state.sidekickGui.vmStatus.turbo
 });
 
 export default connect(

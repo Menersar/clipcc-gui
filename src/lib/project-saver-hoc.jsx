@@ -445,15 +445,15 @@ const ProjectSaverHOC = function (WrappedComponent) {
         onUpdateProjectData: saveProjectToServer
     };
     const mapStateToProps = (state, ownProps) => {
-        const loadingState = state.scratchGui.projectState.loadingState;
+        const loadingState = state.sidekickGui.projectState.loadingState;
         const isShowingWithId = getIsShowingWithId(loadingState);
         const isShowingProject = getIsShowingProject(loadingState);
-        const enableAutoSave = state.scratchGui.settings.autosave;
+        const enableAutoSave = state.sidekickGui.settings.autosave;
         return {
-            autoSaveIntervalSecs: state.scratchGui.settings.autosaveInteval,
-            autoSaveTimeoutId: state.scratchGui.timeout.autoSaveTimeoutId,
+            autoSaveIntervalSecs: state.sidekickGui.settings.autosaveInteval,
+            autoSaveTimeoutId: state.sidekickGui.timeout.autoSaveTimeoutId,
             enableAutoSave: enableAutoSave,
-            fileHandle: state.scratchGui.projectState.fileHandle,
+            fileHandle: state.sidekickGui.projectState.fileHandle,
             isAnyCreatingNewState: getIsAnyCreatingNewState(loadingState),
             isLoading: getIsLoading(loadingState),
             isCreatingCopy: getIsCreatingCopy(loadingState),
@@ -467,10 +467,10 @@ const ProjectSaverHOC = function (WrappedComponent) {
             isManualUpdating: getIsManualUpdating(loadingState),
             loadingState: loadingState,
             locale: state.locales.locale,
-            projectChanged: state.scratchGui.projectChanged,
-            reduxProjectId: state.scratchGui.projectState.projectId,
-            reduxProjectTitle: state.scratchGui.projectTitle,
-            vm: state.scratchGui.vm
+            projectChanged: state.sidekickGui.projectChanged,
+            reduxProjectId: state.sidekickGui.projectState.projectId,
+            reduxProjectTitle: state.sidekickGui.projectTitle,
+            vm: state.sidekickGui.vm
         };
     };
     const mapDispatchToProps = dispatch => ({

@@ -481,21 +481,21 @@ SoundEditor.propTypes = {
 };
 
 const mapStateToProps = (state, {soundIndex}) => {
-    const sprite = state.scratchGui.vm.editingTarget.sprite;
+    const sprite = state.sidekickGui.vm.editingTarget.sprite;
     // Make sure the sound index doesn't go out of range.
     const index = soundIndex < sprite.sounds.length ? soundIndex : sprite.sounds.length - 1;
-    const sound = state.scratchGui.vm.editingTarget.sprite.sounds[index];
+    const sound = state.sidekickGui.vm.editingTarget.sprite.sounds[index];
     if (!sound) {
         return {};
     }
-    const audioBuffer = state.scratchGui.vm.getSoundBuffer(index);
+    const audioBuffer = state.sidekickGui.vm.getSoundBuffer(index);
     return {
         soundId: sound.soundId,
         sampleRate: audioBuffer.sampleRate,
         samples: audioBuffer.getChannelData(0),
-        isFullScreen: state.scratchGui.mode.isFullScreen,
+        isFullScreen: state.sidekickGui.mode.isFullScreen,
         name: sound.name,
-        vm: state.scratchGui.vm
+        vm: state.sidekickGui.vm
     };
 };
 

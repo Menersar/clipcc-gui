@@ -45,7 +45,7 @@ InlineMessages.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    alertsList: state.scratchGui.alerts.alertsList
+    alertsList: state.sidekickGui.alerts.alertsList
 });
 
 const mapDispatchToProps = () => ({});

@@ -263,8 +263,8 @@ Monitor.propTypes = {
     y: PropTypes.number
 };
 const mapStateToProps = state => ({
-    monitorLayout: state.scratchGui.monitorLayout,
-    vm: state.scratchGui.vm
+    monitorLayout: state.sidekickGui.monitorLayout,
+    vm: state.sidekickGui.vm
 });
 const mapDispatchToProps = dispatch => ({
     addMonitorRect: (id, rect, savePosition) =>

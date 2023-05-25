@@ -8,7 +8,7 @@ class CloudProvider {
      * to the Scratch cloud data server. This provider is responsible for
      * interfacing with the VM's cloud io device.
      * @param {string} cloudHost The url for the cloud data server
-     * @param {VirtualMachine} vm The Scratch virtual machine to interface with
+     * @param {VirtualMachine} vm The Sidekick virtual machine to interface with
      * @param {string} username The username to associate cloud data updates with
      * @param {string} projectId The id associated with the project containing
      * cloud data.

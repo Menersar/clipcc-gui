@@ -38,7 +38,7 @@ Player.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    isPlayerOnly: state.scratchGui.mode.isPlayerOnly
+    isPlayerOnly: state.sidekickGui.mode.isPlayerOnly
 });
 
 const mapDispatchToProps = dispatch => ({

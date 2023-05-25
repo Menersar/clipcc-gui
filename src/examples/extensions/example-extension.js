@@ -11,7 +11,7 @@ ExampleExtension.prototype.getInfo = function () {
         id: 'someBlocks',
 
         // Optional: the human-readable name of this extension as string.
-        // This and any other string to be displayed in the Scratch UI may either be
+        // This and any other string to be displayed in the Sidekick UI may either be
         // a string or a call to `intlDefineMessage`; a plain string will not be
         // translated whereas a call to `intlDefineMessage` will connect the string
         // to the translation map (see below). The `intlDefineMessage` call is
@@ -37,21 +37,21 @@ ExampleExtension.prototype.getInfo = function () {
         blocks: [
             {
                 opcode: 'example-noop',
-                blockType: Scratch.BlockType.COMMAND,
+                blockType: Sidekick.BlockType.COMMAND,
                 blockAllThreads: false,
                 text: 'do nothing',
                 func: 'noop'
             },
             {
                 opcode: 'example-conditional',
-                blockType: Scratch.BlockType.CONDITIONAL,
+                blockType: Sidekick.BlockType.CONDITIONAL,
                 branchCount: 4,
                 isTerminal: true,
                 blockAllThreads: false,
                 text: 'choose [BRANCH]',
                 arguments: {
                     BRANCH: {
-                        type: Scratch.ArgumentType.NUMBER,
+                        type: Sidekick.ArgumentType.NUMBER,
                         defaultValue: 1
                     }
                 },
@@ -77,7 +77,7 @@ ExampleExtension.prototype.getInfo = function () {
                 // TODO: Consider Blockly-like nextStatement, previousStatement, and
                 // output attributes as an alternative. Those are more flexible, but
                 // allow bad combinations.
-                blockType: Scratch.BlockType.REPORTER,
+                blockType: Sidekick.BlockType.REPORTER,
 
                 // Required for conditional blocks, ignored for others: the number of
                 // child branches this block controls. An "if" or "repeat" block would
@@ -108,7 +108,7 @@ ExampleExtension.prototype.getInfo = function () {
                     // args object passed to the implementation function.
                     LETTER_NUM: {
                         // Required: type of the argument / shape of the block input
-                        type: Scratch.ArgumentType.NUMBER,
+                        type: Sidekick.ArgumentType.NUMBER,
 
                         // Optional: the default value of the argument
                         defaultValue: 1
@@ -118,7 +118,7 @@ ExampleExtension.prototype.getInfo = function () {
                     // args object passed to the implementation function.
                     TEXT: {
                         // Required: type of the argument / shape of the block input
-                        type: Scratch.ArgumentType.STRING,
+                        type: Sidekick.ArgumentType.STRING,
 
                         // Optional: the default value of the argument
                         defaultValue: 'text'
@@ -136,13 +136,13 @@ ExampleExtension.prototype.getInfo = function () {
             },
             {
                 opcode: 'example-Boolean',
-                blockType: Scratch.BlockType.BOOLEAN,
+                blockType: Sidekick.BlockType.BOOLEAN,
                 text: 'return true',
                 func: 'returnTrue'
             },
             {
                 opcode: 'example-hat',
-                blockType: Scratch.BlockType.HAT,
+                blockType: Sidekick.BlockType.HAT,
                 text: 'after forever',
                 func: 'returnFalse'
             },
@@ -227,4 +227,4 @@ ExampleExtension.prototype.returnFalse = function () {
     return false;
 };
 
-Scratch.extensions.register(new ExampleExtension());
+Sidekick.extensions.register(new ExampleExtension());

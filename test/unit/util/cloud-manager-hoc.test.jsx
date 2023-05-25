@@ -24,7 +24,7 @@ describe('CloudManagerHOC', () => {
 
     beforeEach(() => {
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectState: {
                     projectId: '1234',
                     loadingState: LoadingState.SHOWING_WITH_ID
@@ -35,7 +35,7 @@ describe('CloudManagerHOC', () => {
             }
         });
         stillLoadingStore = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectState: {
                     projectId: '1234',
                     loadingState: LoadingState.LOADING_WITH_ID

@@ -54,7 +54,7 @@ const messages = defineMessages({
     },
     layout: {
         defaultMessage: 'Layout Style',
-        description: 'Label of Scratch layout',
+        description: 'Label of Sidekick layout',
         id: 'gui.settingsModal.layout.label'
     },
     scratch1: {
@@ -74,7 +74,7 @@ const messages = defineMessages({
     },
     darkmode: {
         defaultMessage: 'Theme',
-        description: 'Label of Scratch dark mode',
+        description: 'Label of Sidekick dark mode',
         id: 'gui.settingsModal.darkmode.label'
     },
     darkmodeSystem: {

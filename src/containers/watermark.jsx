@@ -43,7 +43,7 @@ Watermark.propTypes = {
 };
 
 const mapStateToProps = state => {
-    const targets = state.scratchGui.targets;
+    const targets = state.sidekickGui.targets;
     const currentTargetId = targets.editingTarget;
 
     let asset;
@@ -57,7 +57,7 @@ const mapStateToProps = state => {
     }
 
     return {
-        vm: state.scratchGui.vm,
+        vm: state.sidekickGui.vm,
         asset: asset
     };
 };

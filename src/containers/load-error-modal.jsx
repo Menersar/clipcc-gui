@@ -27,7 +27,7 @@ LoadErrorModal.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    data: state.scratchGui.loadError
+    data: state.sidekickGui.loadError
 });
 
 export default connect(

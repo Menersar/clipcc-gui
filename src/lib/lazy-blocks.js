@@ -1,6 +1,6 @@
 import blocks from './blocks.js';
 /* eslint-disable linebreak-style */
-// Loading scratch-block asynchronously
+// Loading sidekick-block asynchronously
 let BlocksComponent = null;
 
 const loaded = () => !!BlocksComponent;

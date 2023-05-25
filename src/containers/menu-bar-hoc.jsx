@@ -49,7 +49,7 @@ const MenuBarHOC = function (WrappedComponent) {
         confirmWithMessage: message => (confirm(message)) // eslint-disable-line no-alert
     };
     const mapStateToProps = state => ({
-        projectChanged: state.scratchGui.projectChanged
+        projectChanged: state.sidekickGui.projectChanged
     });
     const mapDispatchToProps = () => ({});
     // Allow incoming props to override redux-provided props. Used to mock in tests.

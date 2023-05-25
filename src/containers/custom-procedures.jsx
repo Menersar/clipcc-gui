@@ -4,7 +4,7 @@ import defaultsDeep from 'lodash.defaultsdeep';
 import PropTypes from 'prop-types';
 import React from 'react';
 import CustomProceduresComponent from '../components/custom-procedures/custom-procedures.jsx';
-import lazyScratchBlock from '../lib/lazy-blocks';
+import lazySidekickBlock from '../lib/lazy-blocks';
 
 import {connect} from 'react-redux';
 
@@ -35,7 +35,7 @@ class CustomProcedures extends React.Component {
         }
     }
     setBlocks (blocksRef) {
-        const ScratchBlocks = lazyScratchBlock.get();
+        const SidekickBlocks = lazySidekickBlock.get();
         if (!blocksRef) return;
         this.blocks = blocksRef;
         const workspaceConfig = defaultsDeep({},
@@ -45,10 +45,10 @@ class CustomProcedures extends React.Component {
         );
 
         // @todo This is a hack to make there be no toolbox.
-        const oldDefaultToolbox = ScratchBlocks.Blocks.defaultToolbox;
-        ScratchBlocks.Blocks.defaultToolbox = null;
-        this.workspace = ScratchBlocks.inject(this.blocks, workspaceConfig);
-        ScratchBlocks.Blocks.defaultToolbox = oldDefaultToolbox;
+        const oldDefaultToolbox = SidekickBlocks.Blocks.defaultToolbox;
+        SidekickBlocks.Blocks.defaultToolbox = null;
+        this.workspace = SidekickBlocks.inject(this.blocks, workspaceConfig);
+        SidekickBlocks.Blocks.defaultToolbox = oldDefaultToolbox;
 
         // Create the procedure declaration block for editing the mutation.
         this.mutationRoot = this.workspace.newBlock('procedures_declaration');
@@ -136,7 +136,7 @@ class CustomProcedures extends React.Component {
             return;
         }
         
-        // This bug needs to be fixed with scratch-block
+        // This bug needs to be fixed with sidekick-block
         // blocking it here; waiting for LLK
         /*
         if ((procCode_.split("%").length - 1) !== argumentIds_.length) {
@@ -241,8 +241,8 @@ CustomProcedures.defaultProps = {
 
 const mapStateToProps = state => ({
     isRtl: state.locales.isRtl,
-    isCreate: state.scratchGui.customProcedures.create,
-    mutator: state.scratchGui.customProcedures.mutator
+    isCreate: state.sidekickGui.customProcedures.create,
+    mutator: state.sidekickGui.customProcedures.mutator
 });
 
 export default connect(

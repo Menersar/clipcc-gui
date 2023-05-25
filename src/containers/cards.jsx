@@ -19,7 +19,7 @@ import {
 
 import CardsComponent from '../components/cards/cards.jsx';
 import {loadImageData} from '../lib/libraries/decks/translate-image.js';
-import {notScratchDesktop} from '../lib/isScratchDesktop';
+import {notSidekickDesktop} from '../lib/isSidekickDesktop';
 
 class Cards extends React.Component {
     componentDidMount () {
@@ -44,17 +44,17 @@ Cards.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    visible: state.scratchGui.cards.visible,
-    content: state.scratchGui.cards.content,
-    activeDeckId: state.scratchGui.cards.activeDeckId,
-    step: state.scratchGui.cards.step,
-    expanded: state.scratchGui.cards.expanded,
-    x: state.scratchGui.cards.x,
-    y: state.scratchGui.cards.y,
+    visible: state.sidekickGui.cards.visible,
+    content: state.sidekickGui.cards.content,
+    activeDeckId: state.sidekickGui.cards.activeDeckId,
+    step: state.sidekickGui.cards.step,
+    expanded: state.sidekickGui.cards.expanded,
+    x: state.sidekickGui.cards.x,
+    y: state.sidekickGui.cards.y,
     isRtl: state.locales.isRtl,
     locale: state.locales.locale,
-    dragging: state.scratchGui.cards.dragging,
-    showVideos: notScratchDesktop()
+    dragging: state.sidekickGui.cards.dragging,
+    showVideos: notSidekickDesktop()
 });
 
 const mapDispatchToProps = dispatch => ({

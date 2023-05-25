@@ -43,7 +43,7 @@ ProjectTitleInput.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    projectTitle: state.scratchGui.projectTitle
+    projectTitle: state.sidekickGui.projectTitle
 });
 
 const mapDispatchToProps = dispatch => ({

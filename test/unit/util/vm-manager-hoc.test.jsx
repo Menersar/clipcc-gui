@@ -15,7 +15,7 @@ describe('VMManagerHOC', () => {
 
     beforeEach(() => {
         store = mockStore({
-            scratchGui: {
+            sidekickGui: {
                 projectState: {},
                 mode: {},
                 vmStatus: {}

@@ -46,7 +46,7 @@ class Dial extends React.Component {
         const cx = bbox.left + (bbox.width / 2);
         const angle = Math.atan2(my - cy, mx - cx);
         const degrees = angle * (180 / Math.PI);
-        return degrees + 90; // To correspond with scratch coordinate system
+        return degrees + 90; // To correspond with sidekick coordinate system
     }
 
     /**

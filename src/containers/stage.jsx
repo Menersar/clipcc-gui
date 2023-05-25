@@ -148,7 +148,7 @@ class Stage extends React.Component {
     updateRect () {
         this.rect = this.canvas.getBoundingClientRect();
     }
-    getScratchCoords (x, y) {
+    getSidekickCoords (x, y) {
         const nativeSize = this.renderer.getNativeSize();
         return [
             (nativeSize[0] / this.rect.width) * (x - (this.rect.width / 2)),
@@ -198,7 +198,7 @@ class Stage extends React.Component {
             if (this.props.useEditorDragStyle) {
                 this.positionDragCanvas(mousePosition[0], mousePosition[1]);
             } else {
-                const spritePosition = this.getScratchCoords(mousePosition[0], mousePosition[1]);
+                const spritePosition = this.getSidekickCoords(mousePosition[0], mousePosition[1]);
                 this.props.vm.postSpriteInfo({
                     x: spritePosition[0] + this.state.dragOffset[0],
                     y: -(spritePosition[1] + this.state.dragOffset[1]),
@@ -356,9 +356,9 @@ class Stage extends React.Component {
         // Dragging always brings the target to the front
         target.goToFront();
 
-        const [scratchMouseX, scratchMouseY] = this.getScratchCoords(x, y);
-        const offsetX = target.x - scratchMouseX;
-        const offsetY = -(target.y + scratchMouseY);
+        const [sidekickMouseX, sidekickMouseY] = this.getSidekickCoords(x, y);
+        const offsetX = target.x - sidekickMouseX;
+        const offsetY = -(target.y + sidekickMouseY);
 
         this.props.vm.startDrag(targetId);
         this.setState({
@@ -391,7 +391,7 @@ class Stage extends React.Component {
             // First update the sprite position if dropped in the stage.
             if (mouseX > 0 && mouseX < this.rect.width &&
                 mouseY > 0 && mouseY < this.rect.height) {
-                const spritePosition = this.getScratchCoords(mouseX, mouseY);
+                const spritePosition = this.getSidekickCoords(mouseX, mouseY);
                 spriteInfo.x = spritePosition[0] + this.state.dragOffset[0];
                 spriteInfo.y = -(spritePosition[1] + this.state.dragOffset[1]);
                 spriteInfo.force = true;
@@ -447,12 +447,12 @@ Stage.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    isColorPicking: state.scratchGui.colorPicker.active,
-    isFullScreen: state.scratchGui.mode.isFullScreen,
-    isStarted: state.scratchGui.vmStatus.started,
-    micIndicator: state.scratchGui.micIndicator,
+    isColorPicking: state.sidekickGui.colorPicker.active,
+    isFullScreen: state.sidekickGui.mode.isFullScreen,
+    isStarted: state.sidekickGui.vmStatus.started,
+    micIndicator: state.sidekickGui.micIndicator,
     // Do not use editor drag style in fullscreen or player mode.
-    useEditorDragStyle: !(state.scratchGui.mode.isFullScreen || state.scratchGui.mode.isPlayerOnly)
+    useEditorDragStyle: !(state.sidekickGui.mode.isFullScreen || state.sidekickGui.mode.isPlayerOnly)
 });
 
 const mapDispatchToProps = dispatch => ({

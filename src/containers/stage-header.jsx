@@ -52,10 +52,10 @@ StageHeader.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    stageSizeMode: state.scratchGui.stageSize.stageSize,
-    showBranding: state.scratchGui.mode.showBranding,
-    isFullScreen: state.scratchGui.mode.isFullScreen,
-    isPlayerOnly: state.scratchGui.mode.isPlayerOnly
+    stageSizeMode: state.sidekickGui.stageSize.stageSize,
+    showBranding: state.sidekickGui.mode.showBranding,
+    isFullScreen: state.sidekickGui.mode.isFullScreen,
+    isPlayerOnly: state.sidekickGui.mode.isPlayerOnly
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -15,7 +15,7 @@ describe('MenuBar Component', () => {
             isRtl: false,
             locale: 'en-US'
         },
-        scratchGui: {
+        sidekickGui: {
             menus: menuInitialState,
             projectState: {
                 loadingState: LoadingState.NOT_LOADED

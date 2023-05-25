@@ -286,14 +286,14 @@ TargetPane.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    editingTarget: state.scratchGui.targets.editingTarget,
-    hoveredTarget: state.scratchGui.hoveredTarget,
+    editingTarget: state.sidekickGui.targets.editingTarget,
+    hoveredTarget: state.sidekickGui.hoveredTarget,
     isRtl: state.locales.isRtl,
-    spriteLibraryVisible: state.scratchGui.modals.spriteLibrary,
-    sprites: state.scratchGui.targets.sprites,
-    stage: state.scratchGui.targets.stage,
-    raiseSprites: state.scratchGui.blockDrag,
-    workspaceMetrics: state.scratchGui.workspaceMetrics
+    spriteLibraryVisible: state.sidekickGui.modals.spriteLibrary,
+    sprites: state.sidekickGui.targets.sprites,
+    stage: state.sidekickGui.targets.stage,
+    raiseSprites: state.sidekickGui.blockDrag,
+    workspaceMetrics: state.sidekickGui.workspaceMetrics
 });
 
 const mapDispatchToProps = dispatch => ({

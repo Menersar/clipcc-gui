@@ -1,7 +1,7 @@
 {
   "name": "scratch-gui",
   "version": "3.1.15",
-  "description": "Graphical User Interface for creating and running Scratch 3.0 projects",
+  "description": "Graphical User Interface for creating and running Sidekick projects",
   "main": "./dist/scratch-gui.js",
   "scripts": {
     "build": "yarn run genmeta && yarn run clean && webpack --no-progress --colors --bail",

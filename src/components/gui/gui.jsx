@@ -496,7 +496,7 @@ GUIComponent.defaultProps = {
 
 const mapStateToProps = state => ({
     // This is the button's mode, as opposed to the actual current state
-    stageSizeMode: state.scratchGui.stageSize.stageSize
+    stageSizeMode: state.sidekickGui.stageSize.stageSize
 });
 
 export default injectIntl(connect(

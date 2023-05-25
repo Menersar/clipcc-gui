@@ -83,7 +83,7 @@ import dropdownCaret from './dropdown-caret.svg';
 import languageIcon from '../language-selector/language-icon.svg';
 import aboutIcon from './icon--about.svg';
 
-import scratchLogo from './scratch-logo.svg';
+import sidekickLogo from './sidekick-logo.svg';
 
 import sharedMessages from '../../lib/shared-messages';
 
@@ -398,7 +398,7 @@ class MenuBar extends React.Component {
         const settingsMessage = (
             <FormattedMessage
                 defaultMessage="Settings"
-                description="Menu bar item for configuate scratch"
+                description="Menu bar item for configuring sidekick"
                 id="gui.menuBar.settings"
             />
         );
@@ -449,8 +449,8 @@ class MenuBar extends React.Component {
                     <div className={styles.fileGroup}>
                         <div className={classNames(styles.menuBarItem)}>
                             <img
-                                alt="Scratch"
-                                className={classNames(styles.scratchLogo, {
+                                alt="Sidekick"
+                                className={classNames(styles.sidekickLogo, {
                                     [styles.clickable]: typeof this.props.onClickLogo !== 'undefined'
                                 })}
                                 draggable={false}
@@ -817,9 +817,9 @@ class MenuBar extends React.Component {
                                         onMouseUp={this.props.onOpenRegistration}
                                     >
                                         <FormattedMessage
-                                            defaultMessage="Join Scratch"
-                                            description="Link for creating a Scratch account"
-                                            id="gui.menuBar.joinScratch"
+                                            defaultMessage="Join Sidekick"
+                                            description="Link for creating a Sidekick account"
+                                            id="gui.menuBar.joinSidekick"
                                         />
                                     </div>
                                     <div
@@ -832,7 +832,7 @@ class MenuBar extends React.Component {
                                     >
                                         <FormattedMessage
                                             defaultMessage="Sign in"
-                                            description="Link for signing in to your Scratch account"
+                                            description="Link for signing in to your Sidekick account"
                                             id="gui.menuBar.signIn"
                                         />
                                         <LoginDropdown
@@ -983,18 +983,18 @@ MenuBar.propTypes = {
 };
 
 MenuBar.defaultProps = {
-    logo: scratchLogo,
+    logo: sidekickLogo,
     onShare: () => {}
 };
 
 const mapStateToProps = (state, ownProps) => {
-    const loadingState = state.scratchGui.projectState.loadingState;
+    const loadingState = state.sidekickGui.projectState.loadingState;
     const user = state.session && state.session.session && state.session.session.user;
     return {
         aboutMenuOpen: aboutMenuOpen(state),
         accountMenuOpen: accountMenuOpen(state),
         fileMenuOpen: fileMenuOpen(state),
-        fileHandle: state.scratchGui.projectState.fileHandle,
+        fileHandle: state.sidekickGui.projectState.fileHandle,
         editMenuOpen: editMenuOpen(state),
         otherMenuOpen: otherMenuOpen(state),
         isRtl: state.locales.isRtl,
@@ -1003,12 +1003,12 @@ const mapStateToProps = (state, ownProps) => {
         languageMenuOpen: languageMenuOpen(state),
         locale: state.locales.locale,
         loginMenuOpen: loginMenuOpen(state),
-        projectTitle: state.scratchGui.projectTitle,
+        projectTitle: state.sidekickGui.projectTitle,
         sessionExists: state.session && typeof state.session.session !== 'undefined',
         username: user ? user.username : null,
         userOwnsProject: ownProps.authorUsername && user &&
             (ownProps.authorUsername === user.username),
-        vm: state.scratchGui.vm
+        vm: state.sidekickGui.vm
     };
 };
 

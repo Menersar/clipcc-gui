@@ -4,7 +4,7 @@ class ExtensionAPI {
     }
     
     isDesktop () {
-        return this.gui.props.isScratchDesktop;
+        return this.gui.props.isSidekickDesktop;
     }
     
     isEditorLoading () {

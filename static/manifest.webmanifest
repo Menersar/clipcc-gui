@@ -1,29 +1,29 @@
 {
-    "name": "Scratch",
-    "short_name": "Scratch",
-    "id": "edu.mit.scratch.scratch3",
+    "name": "Sidekick",
+    "short_name": "Sidekick",
+    "id": "sidekickteam.sidekick",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#4D97FF",
+    "background_color": "#b6d597",
     "description": "A powerful modified Scratch editor.",
     "icons": [
         {
-            "src": "static/scratch_logo48.png",
+            "src": "static/sidekick_logo48.png",
             "sizes": "48x48",
             "type": "image/png"
         },
         {
-            "src": "static/scratch_logo72.png",
+            "src": "static/sidekick_logo72.png",
             "sizes": "72x72",
             "type": "image/png"
         },
         {
-            "src": "static/scratch_logo96.png",
+            "src": "static/sidekick_logo96.png",
             "sizes": "96x96",
             "type": "image/png"
         },
         {
-            "src": "static/scratch_logo144.png",
+            "src": "static/sidekick_logo144.png",
             "sizes": "144x144",
             "type": "image/png"
         }

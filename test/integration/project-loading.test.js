@@ -16,7 +16,7 @@ const uri = path.resolve(__dirname, '../../build/index.html');
 
 let driver;
 
-describe('Loading scratch gui', () => {
+describe('Loading sidekick gui', () => {
     beforeAll(() => {
         driver = getDriver();
     });
@@ -87,7 +87,7 @@ describe('Loading scratch gui', () => {
                 'contains(@class, "menu-bar_hoverable")][span[text()="File"]]'
             );
             await clickXpath('//li[span[text()="New"]]');
-            await findByXpath('//div[@class="scratchCategoryMenu"]');
+            await findByXpath('//div[@class="sidekickCategoryMenu"]');
             await clickText('Operators', scope.blocksTab);
         });
 
@@ -98,7 +98,7 @@ describe('Loading scratch gui', () => {
                 'contains(@class, "menu-bar_hoverable")][span[text()="File"]]'
             );
             await clickXpath('//li[span[text()="New"]]');
-            await findByXpath('//*[div[@class="scratchCategoryMenu"]]');
+            await findByXpath('//*[div[@class="sidekickCategoryMenu"]]');
             await clickText('Operators', scope.blocksTab);
         });
 
@@ -116,7 +116,7 @@ describe('Loading scratch gui', () => {
             driver.switchTo()
                 .alert()
                 .accept();
-            await findByXpath('//*[div[@class="scratchCategoryMenu"]]');
+            await findByXpath('//*[div[@class="sidekickCategoryMenu"]]');
             await clickText('Operators', scope.blocksTab);
         });
     });

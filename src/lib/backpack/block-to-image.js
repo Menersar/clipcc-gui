@@ -1,5 +1,5 @@
 import computedStyleToInlineStyle from 'computed-style-to-inline-style';
-import lazyScratchBlock from '../lazy-blocks';
+import lazySidekickBlock from '../lazy-blocks';
 
 /**
  * Given a blockId, return a data-uri image that can be used to create a thumbnail.
@@ -7,9 +7,10 @@ import lazyScratchBlock from '../lazy-blocks';
  * @return {Promise} resolves to a data-url of a picture of the blocks
  */
 export default function (blockId) {
-    const ScratchBlocks = lazyScratchBlock.get();
-    // Not sure any better way to access the scratch-blocks workspace than this...
-    const block = ScratchBlocks.getMainWorkspace().getBlockById(blockId);
+    const SidekickBlocks = lazySidekickBlock.get();
+    // !!!
+    // Not sure any better way to access the sidekick-blocks workspace than this...
+    const block = SidekickBlocks.getMainWorkspace().getBlockById(blockId);
     const blockSvg = block.getSvgRoot().cloneNode(true /* deep */);
 
     // Once we have the cloned SVG, do the rest in a setTimeout to prevent
@@ -44,7 +45,7 @@ export default function (blockId) {
             computedStyleToInlineStyle(svg, {
                 recursive: true,
                 // Enumerate the specific properties we need to inline.
-                // Specifically properties that are set from CSS in scratch-blocks
+                // Specifically properties that are set from CSS in sidekick-blocks
                 properties: ['fill', 'font-family', 'font-size', 'font-weight']
             });
 

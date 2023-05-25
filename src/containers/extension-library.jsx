@@ -5,7 +5,7 @@ import React from 'react';
 import VM from 'scratch-vm';
 import {connect} from 'react-redux';
 import {defineMessages, injectIntl, FormattedMessage} from 'react-intl';
-import ScratchExtension, {error} from 'scratch-extension';
+import SidekickExtension, {error} from 'scratch-extension';
 import log from '../lib/log';
 
 import LibraryComponent from '../components/library/library.jsx';
@@ -22,9 +22,9 @@ import {
 } from '../reducers/locales';
 
 import {loadExtensionFromFile} from '../lib/extension-manager.js';
-import {isScratchDesktop} from '../lib/isScratchDesktop';
+import {isSidekickDesktop} from '../lib/isSidekickDesktop';
 
-global.ScratchExtension = ScratchExtension;
+global.SidekickExtension = SidekickExtension;
 
 const messages = defineMessages({
     extensionTitle: {
@@ -125,8 +125,8 @@ class ExtensionLibrary extends React.PureComponent {
     }
     handleRequestClose () {
         try {
-            this.loadOrder = ScratchExtension.extensionManager.getExtensionLoadOrder(this.willLoad);
-            this.unloadOrder = ScratchExtension.extensionManager.getExtensionUnloadOrder(this.willUnload);
+            this.loadOrder = SidekickExtension.extensionManager.getExtensionLoadOrder(this.willLoad);
+            this.unloadOrder = SidekickExtension.extensionManager.getExtensionUnloadOrder(this.willUnload);
             this.willLoadDependency = this.loadOrder.filter(v => !this.willLoad.includes(v.id)).map(v => v.id);
             this.willUnloadDependency = this.unloadOrder.filter(v => !this.willUnload.includes(v));
             if (this.loadOrder.length || this.unloadOrder.length) {
@@ -247,9 +247,10 @@ class ExtensionLibrary extends React.PureComponent {
         }
     }
     handleClickExtensionStore () {
+        // !!!
         /*
-        if (isScratchDesktop()) {
-            return window.Scratch.ipc.send('open-extension-store');
+        if (isSidekickDesktop()) {
+            return window.Sidekick.ipc.send('open-extension-store');
         }
         */
         if (!this.extensionChannel) {
@@ -264,14 +265,14 @@ class ExtensionLibrary extends React.PureComponent {
             status=yes`);
     }
     handleMsgboxConfirm () {
-        ScratchExtension.extensionManager.loadExtensionsWithMode(
+        SidekickExtension.extensionManager.loadExtensionsWithMode(
             this.loadOrder,
             extension => this.props.vm.extensionManager.loadExtensionURL(extension)
         );
         for (const extension of this.loadOrder) {
             this.props.setExtensionEnable(extension.id);
         }
-        ScratchExtension.extensionManager.unloadExtensions(
+        SidekickExtension.extensionManager.unloadExtensions(
             this.unloadOrder,
             extension => this.props.vm.extensionManager.unloadExtensionURL(extension)
         );
@@ -463,7 +464,7 @@ ExtensionLibrary.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    extension: state.scratchGui.extension.extension
+    extension: state.sidekickGui.extension.extension
 });
 
 const mapDispatchToProps = dispatch => ({

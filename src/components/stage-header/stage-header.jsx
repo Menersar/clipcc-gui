@@ -16,7 +16,7 @@ import largeStageIcon from './icon--large-stage.svg';
 import smallStageIcon from './icon--small-stage.svg';
 import unFullScreenIcon from './icon--unfullscreen.svg';
 
-import scratchLogo from '../menu-bar/scratch-logo.svg';
+import sidekickLogo from '../menu-bar/sidekick-logo.svg';
 import styles from './stage-header.css';
 
 const messages = defineMessages({
@@ -67,15 +67,15 @@ const StageHeaderComponent = function (props) {
     if (isFullScreen) {
         const stageDimensions = getStageDimensions(null, true);
         const stageButton = showBranding ? (
-            <div className={styles.embedScratchLogo}>
+            <div className={styles.embedSidekickLogo}>
                 <a
                     href="https://scratch.mit.edu"
                     rel="noopener noreferrer"
                     target="_blank"
                 >
                     <img
-                        alt="Scratch"
-                        src={scratchLogo}
+                        alt="Sidekick"
+                        src={sidekickLogo}
                     />
                 </a>
             </div>
@@ -189,8 +189,8 @@ const StageHeaderComponent = function (props) {
 
 const mapStateToProps = state => ({
     // This is the button's mode, as opposed to the actual current state
-    stageSizeMode: state.scratchGui.stageSize.stageSize,
-    darkFullscreenStage: state.scratchGui.settings.darkFullscreenStage
+    stageSizeMode: state.sidekickGui.stageSize.stageSize,
+    darkFullscreenStage: state.sidekickGui.settings.darkFullscreenStage
 });
 
 StageHeaderComponent.propTypes = {

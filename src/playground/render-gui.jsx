@@ -39,20 +39,21 @@ export default appTarget => {
         HashParserHOC
     )(GUI);
 
+    // !!!
     // TODO a hack for testing the backpack, allow backpack host to be set by url param
     const backpackHostMatches = window.location.href.match(/[?&]backpack_host=([^&]*)&?/);
     const backpackHost = backpackHostMatches ? backpackHostMatches[1] : null;
 
-    const scratchDesktopMatches = window.location.href.match(/[?&]isScratchDesktop=([^&]+)/);
-    let simulateScratchDesktop;
-    if (scratchDesktopMatches) {
+    const sidekickDesktopMatches = window.location.href.match(/[?&]isSidekickDesktop=([^&]+)/);
+    let simulateSidekickDesktop;
+    if (sidekickDesktopMatches) {
         try {
             // parse 'true' into `true`, 'false' into `false`, etc.
-            simulateScratchDesktop = JSON.parse(scratchDesktopMatches[1]);
+            simulateSidekickDesktop = JSON.parse(sidekickDesktopMatches[1]);
         } catch {
             // it's not JSON so just use the string
             // note that a typo like "falsy" will be treated as true
-            simulateScratchDesktop = scratchDesktopMatches[1];
+            simulateSidekickDesktop = sidekickDesktopMatches[1];
         }
     }
     if (process.env.NODE_ENV === 'production' && typeof window === 'object') {
@@ -61,11 +62,11 @@ export default appTarget => {
     }
 
     ReactDOM.render(
-        // important: this is checking whether `simulateScratchDesktop` is truthy, not just defined!
-        simulateScratchDesktop ?
+        // important: this is checking whether `simulateSidekickDesktop` is truthy, not just defined!
+        simulateSidekickDesktop ?
             <WrappedGui
                 canEditTitle
-                isScratchDesktop
+                isSidekickDesktop
                 isStandalone
                 showTelemetryModal
                 canSave={false}

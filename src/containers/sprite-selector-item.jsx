@@ -170,10 +170,10 @@ SpriteSelectorItem.propTypes = {
 };
 
 const mapStateToProps = (state, {id}) => ({
-    dragging: state.scratchGui.assetDrag.dragging,
-    receivedBlocks: state.scratchGui.hoveredTarget.receivedBlocks &&
-            state.scratchGui.hoveredTarget.sprite === id,
-    vm: state.scratchGui.vm
+    dragging: state.sidekickGui.assetDrag.dragging,
+    receivedBlocks: state.sidekickGui.hoveredTarget.receivedBlocks &&
+            state.sidekickGui.hoveredTarget.sprite === id,
+    vm: state.sidekickGui.vm
 });
 const mapDispatchToProps = dispatch => ({
     dispatchSetHoveredSprite: spriteId => {

@@ -141,23 +141,23 @@ const vmManagerHOC = function (WrappedComponent) {
     };
 
     const mapStateToProps = state => {
-        const loadingState = state.scratchGui.projectState.loadingState;
+        const loadingState = state.sidekickGui.projectState.loadingState;
         return {
-            fontsLoaded: state.scratchGui.fontsLoaded,
+            fontsLoaded: state.sidekickGui.fontsLoaded,
             isLoadingWithId: getIsLoadingWithId(loadingState),
             locale: state.locales.locale,
             messages: state.locales.messages,
-            projectData: state.scratchGui.projectState.projectData,
-            projectId: state.scratchGui.projectState.projectId,
+            projectData: state.sidekickGui.projectState.projectData,
+            projectId: state.sidekickGui.projectState.projectId,
             loadingState: loadingState,
-            isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
-            isStarted: state.scratchGui.vmStatus.started,
-            saveSettings: state.scratchGui.settings.saveSettings,
-            fps: state.scratchGui.settings.framerate,
-            compiler: state.scratchGui.settings.compiler,
-            hqpen: state.scratchGui.settings.hqpen,
-            compression: state.scratchGui.settings.compression,
-            compatibility: state.scratchGui.settings.compatibility
+            isPlayerOnly: state.sidekickGui.mode.isPlayerOnly,
+            isStarted: state.sidekickGui.vmStatus.started,
+            saveSettings: state.sidekickGui.settings.saveSettings,
+            fps: state.sidekickGui.settings.framerate,
+            compiler: state.sidekickGui.settings.compiler,
+            hqpen: state.sidekickGui.settings.hqpen,
+            compression: state.sidekickGui.settings.compression,
+            compatibility: state.sidekickGui.settings.compatibility
         };
     };
 

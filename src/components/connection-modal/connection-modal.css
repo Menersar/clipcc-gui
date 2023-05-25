@@ -227,7 +227,7 @@
     padding: .5rem;
 }
 
-.scratch-link-help {
+.sidekick-link-help {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -236,22 +236,22 @@
     padding-bottom: .5rem;
 }
 
-.scratch-link-help-step {
+.sidekick-link-help-step {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 
-[dir="ltr"] .scratch-link-help-step {
+[dir="ltr"] .sidekick-link-help-step {
     margin-left: 2.5rem;
 }
 
-[dir="rtl"] .scratch-link-help-step {
+[dir="rtl"] .sidekick-link-help-step {
     margin-right: 2.5rem;
 }
 
-.scratch-link-icon {
+.sidekick-link-icon {
     max-width: 50px;
 }
 

@@ -67,8 +67,8 @@ SaveStatus.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    alertsList: state.scratchGui.alerts.alertsList,
-    projectChanged: state.scratchGui.projectChanged
+    alertsList: state.sidekickGui.alerts.alertsList,
+    projectChanged: state.sidekickGui.projectChanged
 });
 
 const mapDispatchToProps = dispatch => ({

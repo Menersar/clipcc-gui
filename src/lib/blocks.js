@@ -1,14 +1,14 @@
-import lazyScratchBlock from './lazy-blocks';
+import lazySidekickBlock from './lazy-blocks';
 import blockToImage from './backpack/block-to-image';
 import jpegThumbnail from './backpack/jpeg-thumbnail';
 
 /**
- * Connect scratch blocks with the vm
- * @param {VirtualMachine} vm - The scratch vm
- * @return {ScratchBlocks} ScratchBlocks connected with the vm
+ * Connect sidekick blocks with the vm
+ * @param {VirtualMachine} vm - The sidekick vm
+ * @return {SidekickBlocks} SidekickBlocks connected with the vm
  */
 export default function (vm) {
-    const ScratchBlocks = lazyScratchBlock.get();
+    const SidekickBlocks = lazySidekickBlock.get();
     const jsonForMenuBlock = function (name, menuOptionsFn, colors, start) {
         return {
             message0: '%1',
@@ -26,7 +26,7 @@ export default function (vm) {
             colour: colors.secondary,
             colourSecondary: colors.secondary,
             colourTertiary: colors.tertiary,
-            outputShape: ScratchBlocks.OUTPUT_SHAPE_ROUND
+            outputShape: SidekickBlocks.OUTPUT_SHAPE_ROUND
         };
     };
 
@@ -52,7 +52,7 @@ export default function (vm) {
 
     const jsonForSensingMenus = function (menuOptionsFn) {
         return {
-            message0: ScratchBlocks.Msg.SENSING_OF,
+            message0: SidekickBlocks.Msg.SENSING_OF,
             args0: [
                 {
                     type: 'field_dropdown',
@@ -68,10 +68,10 @@ export default function (vm) {
                 }
             ],
             output: true,
-            colour: ScratchBlocks.Colours.sensing.primary,
-            colourSecondary: ScratchBlocks.Colours.sensing.secondary,
-            colourTertiary: ScratchBlocks.Colours.sensing.tertiary,
-            outputShape: ScratchBlocks.OUTPUT_SHAPE_ROUND
+            colour: SidekickBlocks.Colours.sensing.primary,
+            colourSecondary: SidekickBlocks.Colours.sensing.secondary,
+            colourTertiary: SidekickBlocks.Colours.sensing.tertiary,
+            outputShape: SidekickBlocks.OUTPUT_SHAPE_ROUND
         };
     };
 
@@ -81,8 +81,8 @@ export default function (vm) {
             menu = vm.editingTarget.sprite.sounds.map(sound => [sound.name, sound.name]);
         }
         menu.push([
-            ScratchBlocks.ScratchMsgs.translate('SOUND_RECORD', 'record...'),
-            ScratchBlocks.recordSoundCallback
+            SidekickBlocks.ScratchMsgs.translate('SOUND_RECORD', 'record...'),
+            SidekickBlocks.recordSoundCallback
         ]);
         return menu;
     };
@@ -95,9 +95,9 @@ export default function (vm) {
     };
 
     const backdropsMenu = function () {
-        const next = ScratchBlocks.ScratchMsgs.translate('LOOKS_NEXTBACKDROP', 'next backdrop');
-        const previous = ScratchBlocks.ScratchMsgs.translate('LOOKS_PREVIOUSBACKDROP', 'previous backdrop');
-        const random = ScratchBlocks.ScratchMsgs.translate('LOOKS_RANDOMBACKDROP', 'random backdrop');
+        const next = SidekickBlocks.ScratchMsgs.translate('LOOKS_NEXTBACKDROP', 'next backdrop');
+        const previous = SidekickBlocks.ScratchMsgs.translate('LOOKS_PREVIOUSBACKDROP', 'previous backdrop');
+        const random = SidekickBlocks.ScratchMsgs.translate('LOOKS_RANDOMBACKDROP', 'random backdrop');
         if (vm.runtime.targets[0] && vm.runtime.targets[0].getCostumes().length > 0) {
             return vm.runtime.targets[0].getCostumes().map(costume => [costume.name, costume.name])
                 .concat([[next, 'next backdrop'],
@@ -139,55 +139,55 @@ export default function (vm) {
             }
             return menu;
         }
-        const myself = ScratchBlocks.ScratchMsgs.translate('CONTROL_CREATECLONEOF_MYSELF', 'myself');
+        const myself = SidekickBlocks.ScratchMsgs.translate('CONTROL_CREATECLONEOF_MYSELF', 'myself');
         return [[myself, '_myself_']].concat(spriteMenu());
     };
 
-    const soundColors = ScratchBlocks.Colours.sounds;
+    const soundColors = SidekickBlocks.Colours.sounds;
 
-    const looksColors = ScratchBlocks.Colours.looks;
+    const looksColors = SidekickBlocks.Colours.looks;
 
-    const motionColors = ScratchBlocks.Colours.motion;
+    const motionColors = SidekickBlocks.Colours.motion;
 
-    const sensingColors = ScratchBlocks.Colours.sensing;
+    const sensingColors = SidekickBlocks.Colours.sensing;
 
-    const controlColors = ScratchBlocks.Colours.control;
+    const controlColors = SidekickBlocks.Colours.control;
 
-    const eventColors = ScratchBlocks.Colours.event;
+    const eventColors = SidekickBlocks.Colours.event;
 
-    ScratchBlocks.Blocks.sound_sounds_menu.init = function () {
+    SidekickBlocks.Blocks.sound_sounds_menu.init = function () {
         const json = jsonForMenuBlock('SOUND_MENU', soundsMenu, soundColors, []);
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.looks_costume.init = function () {
+    SidekickBlocks.Blocks.looks_costume.init = function () {
         const json = jsonForMenuBlock('COSTUME', costumesMenu, looksColors, []);
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.looks_backdrops.init = function () {
+    SidekickBlocks.Blocks.looks_backdrops.init = function () {
         const json = jsonForMenuBlock('BACKDROP', backdropsMenu, looksColors, []);
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.event_whenbackdropswitchesto.init = function () {
+    SidekickBlocks.Blocks.event_whenbackdropswitchesto.init = function () {
         const json = jsonForHatBlockMenu(
-            ScratchBlocks.Msg.EVENT_WHENBACKDROPSWITCHESTO,
+            SidekickBlocks.Msg.EVENT_WHENBACKDROPSWITCHESTO,
             'BACKDROP', backdropNamesMenu, eventColors, []);
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.motion_pointtowards_menu.init = function () {
-        const mouse = ScratchBlocks.ScratchMsgs.translate('MOTION_POINTTOWARDS_POINTER', 'mouse-pointer');
+    SidekickBlocks.Blocks.motion_pointtowards_menu.init = function () {
+        const mouse = SidekickBlocks.ScratchMsgs.translate('MOTION_POINTTOWARDS_POINTER', 'mouse-pointer');
         const json = jsonForMenuBlock('TOWARDS', spriteMenu, motionColors, [
             [mouse, '_mouse_']
         ]);
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.motion_goto_menu.init = function () {
-        const random = ScratchBlocks.ScratchMsgs.translate('MOTION_GOTO_RANDOM', 'random position');
-        const mouse = ScratchBlocks.ScratchMsgs.translate('MOTION_GOTO_POINTER', 'mouse-pointer');
+    SidekickBlocks.Blocks.motion_goto_menu.init = function () {
+        const random = SidekickBlocks.ScratchMsgs.translate('MOTION_GOTO_RANDOM', 'random position');
+        const mouse = SidekickBlocks.ScratchMsgs.translate('MOTION_GOTO_POINTER', 'mouse-pointer');
         const json = jsonForMenuBlock('TO', spriteMenu, motionColors, [
             [random, '_random_'],
             [mouse, '_mouse_']
@@ -195,9 +195,9 @@ export default function (vm) {
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.motion_glideto_menu.init = function () {
-        const random = ScratchBlocks.ScratchMsgs.translate('MOTION_GLIDETO_RANDOM', 'random position');
-        const mouse = ScratchBlocks.ScratchMsgs.translate('MOTION_GLIDETO_POINTER', 'mouse-pointer');
+    SidekickBlocks.Blocks.motion_glideto_menu.init = function () {
+        const random = SidekickBlocks.ScratchMsgs.translate('MOTION_GLIDETO_RANDOM', 'random position');
+        const mouse = SidekickBlocks.ScratchMsgs.translate('MOTION_GLIDETO_POINTER', 'mouse-pointer');
         const json = jsonForMenuBlock('TO', spriteMenu, motionColors, [
             [random, '_random_'],
             [mouse, '_mouse_']
@@ -205,15 +205,15 @@ export default function (vm) {
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.sensing_of_object_menu.init = function () {
-        const stage = ScratchBlocks.ScratchMsgs.translate('SENSING_OF_STAGE', 'Stage');
+    SidekickBlocks.Blocks.sensing_of_object_menu.init = function () {
+        const stage = SidekickBlocks.ScratchMsgs.translate('SENSING_OF_STAGE', 'Stage');
         const json = jsonForMenuBlock('OBJECT', spriteMenu, sensingColors, [
             [stage, '_stage_']
         ]);
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.sensing_of.init = function () {
+    SidekickBlocks.Blocks.sensing_of.init = function () {
         const blockId = this.id;
         const blockType = this.type;
 
@@ -231,18 +231,18 @@ export default function (vm) {
         // Called every time it opens since it depends on the values in the other block input.
         const menuFn = function () {
             const stageOptions = [
-                [ScratchBlocks.Msg.SENSING_OF_BACKDROPNUMBER, 'backdrop #'],
-                [ScratchBlocks.Msg.SENSING_OF_BACKDROPNAME, 'backdrop name'],
-                [ScratchBlocks.Msg.SENSING_OF_VOLUME, 'volume']
+                [SidekickBlocks.Msg.SENSING_OF_BACKDROPNUMBER, 'backdrop #'],
+                [SidekickBlocks.Msg.SENSING_OF_BACKDROPNAME, 'backdrop name'],
+                [SidekickBlocks.Msg.SENSING_OF_VOLUME, 'volume']
             ];
             const spriteOptions = [
-                [ScratchBlocks.Msg.SENSING_OF_XPOSITION, 'x position'],
-                [ScratchBlocks.Msg.SENSING_OF_YPOSITION, 'y position'],
-                [ScratchBlocks.Msg.SENSING_OF_DIRECTION, 'direction'],
-                [ScratchBlocks.Msg.SENSING_OF_COSTUMENUMBER, 'costume #'],
-                [ScratchBlocks.Msg.SENSING_OF_COSTUMENAME, 'costume name'],
-                [ScratchBlocks.Msg.SENSING_OF_SIZE, 'size'],
-                [ScratchBlocks.Msg.SENSING_OF_VOLUME, 'volume']
+                [SidekickBlocks.Msg.SENSING_OF_XPOSITION, 'x position'],
+                [SidekickBlocks.Msg.SENSING_OF_YPOSITION, 'y position'],
+                [SidekickBlocks.Msg.SENSING_OF_DIRECTION, 'direction'],
+                [SidekickBlocks.Msg.SENSING_OF_COSTUMENUMBER, 'costume #'],
+                [SidekickBlocks.Msg.SENSING_OF_COSTUMENAME, 'costume name'],
+                [SidekickBlocks.Msg.SENSING_OF_SIZE, 'size'],
+                [SidekickBlocks.Msg.SENSING_OF_VOLUME, 'volume']
             ];
             if (vm.editingTarget) {
                 let lookupBlocks = vm.editingTarget.blocks;
@@ -252,7 +252,7 @@ export default function (vm) {
                 if (!sensingOfBlock) {
                     sensingOfBlock = vm.runtime.flyoutBlocks.getBlock(blockId) || defaultSensingOfBlock;
                     // If we still don't have a block, just return an empty list . This happens during
-                    // scratch blocks construction.
+                    // sidekick blocks construction.
                     if (!sensingOfBlock) {
                         return [['', '']];
                     }
@@ -260,7 +260,7 @@ export default function (vm) {
                     lookupBlocks = vm.runtime.flyoutBlocks;
                 }
                 const sort = function (options) {
-                    options.sort(ScratchBlocks.scratchBlocksUtils.compareStrings);
+                    options.sort(SidekickBlocks.scratchBlocksUtils.compareStrings);
                 };
                 // Get all the stage variables (no lists) so we can add them to menu when the stage is selected.
                 const stageVariableOptions = vm.runtime.getTargetForStage().getAllVariableNamesInScopeByType('');
@@ -295,17 +295,17 @@ export default function (vm) {
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.sensing_distancetomenu.init = function () {
-        const mouse = ScratchBlocks.ScratchMsgs.translate('SENSING_DISTANCETO_POINTER', 'mouse-pointer');
+    SidekickBlocks.Blocks.sensing_distancetomenu.init = function () {
+        const mouse = SidekickBlocks.ScratchMsgs.translate('SENSING_DISTANCETO_POINTER', 'mouse-pointer');
         const json = jsonForMenuBlock('DISTANCETOMENU', spriteMenu, sensingColors, [
             [mouse, '_mouse_']
         ]);
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.sensing_touchingobjectmenu.init = function () {
-        const mouse = ScratchBlocks.ScratchMsgs.translate('SENSING_TOUCHINGOBJECT_POINTER', 'mouse-pointer');
-        const edge = ScratchBlocks.ScratchMsgs.translate('SENSING_TOUCHINGOBJECT_EDGE', 'edge');
+    SidekickBlocks.Blocks.sensing_touchingobjectmenu.init = function () {
+        const mouse = SidekickBlocks.ScratchMsgs.translate('SENSING_TOUCHINGOBJECT_POINTER', 'mouse-pointer');
+        const edge = SidekickBlocks.ScratchMsgs.translate('SENSING_TOUCHINGOBJECT_EDGE', 'edge');
         const json = jsonForMenuBlock('TOUCHINGOBJECTMENU', spriteMenu, sensingColors, [
             [mouse, '_mouse_'],
             [edge, '_edge_']
@@ -313,24 +313,26 @@ export default function (vm) {
         this.jsonInit(json);
     };
 
-    ScratchBlocks.Blocks.control_create_clone_of_menu.init = function () {
+    SidekickBlocks.Blocks.control_create_clone_of_menu.init = function () {
         const json = jsonForMenuBlock('CLONE_OPTION', cloneMenu, controlColors, []);
         this.jsonInit(json);
     };
 
-    ScratchBlocks.VerticalFlyout.getCheckboxState = function (blockId) {
+    // ???
+    // !!!
+    SidekickBlocks.VerticalFlyout.getCheckboxState = function (blockId) {
         const monitoredBlock = vm.runtime.monitorBlocks._blocks[blockId];
         return monitoredBlock ? monitoredBlock.isMonitored : false;
     };
 
-    ScratchBlocks.FlyoutExtensionCategoryHeader.getExtensionState = function (extensionId) {
+    SidekickBlocks.FlyoutExtensionCategoryHeader.getExtensionState = function (extensionId) {
         if (vm.getPeripheralIsConnected(extensionId)) {
-            return ScratchBlocks.StatusButtonState.READY;
+            return SidekickBlocks.StatusButtonState.READY;
         }
-        return ScratchBlocks.StatusButtonState.NOT_READY;
+        return SidekickBlocks.StatusButtonState.NOT_READY;
     };
 
-    ScratchBlocks.FieldNote.playNote_ = function (noteNum, extensionId) {
+    SidekickBlocks.FieldNote.playNote_ = function (noteNum, extensionId) {
         vm.runtime.emit('PLAY_NOTE', noteNum, extensionId);
     };
 
@@ -341,16 +343,16 @@ export default function (vm) {
         sensitivity: 'base',
         numeric: true
     });
-    ScratchBlocks.scratchBlocksUtils.compareStrings = function (str1, str2) {
+    SidekickBlocks.scratchBlocksUtils.compareStrings = function (str1, str2) {
         return collator.compare(str1, str2);
     };
     
-    ScratchBlocks.scratchBlocksUtils.externalCopyCallback = function (xml) {
-        const steveScratchCopiedBlock = JSON.stringify(['SSCB3', (new XMLSerializer()).serializeToString(xml)]);
-        navigator.clipboard.writeText(steveScratchCopiedBlock);
+    SidekickBlocks.scratchBlocksUtils.externalCopyCallback = function (xml) {
+        const steveSidekickCopiedBlock = JSON.stringify(['SSCB3', (new XMLSerializer()).serializeToString(xml)]);
+        navigator.clipboard.writeText(steveSidekickCopiedBlock);
     };
     
-    ScratchBlocks.scratchBlocksUtils.externalPasteCallback = function (callback) {
+    SidekickBlocks.scratchBlocksUtils.externalPasteCallback = function (callback) {
         navigator.clipboard.readText()
             .then(text => {
                 if (!text.trim().startsWith('["SSCB3"')) {
@@ -366,7 +368,7 @@ export default function (vm) {
             });
     };
     
-    ScratchBlocks.scratchBlocksUtils.externalCopyImageCallback = function(blockId) {
+    SidekickBlocks.scratchBlocksUtils.externalCopyImageCallback = function(blockId) {
         return blockToImage(blockId)
             .then(dataUrl => {
                 return jpegThumbnail(dataUrl, true);
@@ -381,14 +383,14 @@ export default function (vm) {
     }
 
     // Blocks wants to know if 3D CSS transforms are supported. The cross
-    // section of browsers Scratch supports and browsers that support 3D CSS
+    // section of browsers Sidekick supports and browsers that support 3D CSS
     // transforms will make the return always true.
     //
     // Shortcutting to true lets us skip an expensive style recalculation when
-    // first loading the Scratch editor.
-    ScratchBlocks.utils.is3dSupported = function () {
+    // first loading the Sidekick editor.
+    SidekickBlocks.utils.is3dSupported = function () {
         return true;
     };
 
-    return ScratchBlocks;
+    return SidekickBlocks;
 }
