@@ -102,7 +102,7 @@ export default [
     {
         name: (
             <FormattedMessage
-                defaultMessage="HTTPIO"
+                defaultMessage="httpio"
                 description="Name for the 'HTTPIO' extension"
                 id="gui.extension.httpio.name"
             />
@@ -123,7 +123,7 @@ export default [
     {
         name: (
             <FormattedMessage
-                defaultMessage="JSON"
+                defaultMessage="json"
                 description="Name for the 'JSON' extension"
                 id="gui.extension.json.name"
             />
